@@ -1,0 +1,50 @@
+<view class="container">
+
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <view class="page-body-info">
+        <block wx:if="{{hasUserInfo === false}}">
+          <image class="userinfo-avatar" src="../../images/avatar.png"></image>
+           <button open-type="getUserInfo" bindtap="getUserInfo">授权登录</button>
+        </block>
+        <block wx:if="{{hasUserInfo === true}}">
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+      <view class="page-body-buttons">
+        <!-- <button class="page-body-button" bindtap="clear">清空</button> -->
+      </view>
+    </view>
+
+    <!-- item start-->
+     <navigator url="../userinfo/userinfo?user_id={{user_id}}" class="me-item">
+      <view class="me-item-pre">
+        <image class="item-icon" src="../../images/persion.png"></image>
+        <text class="item-text">个人信息</text>
+      </view>
+      <image class="item-arrow" src="../../images/right_arrow.png"></image>
+    </navigator>
+    <!-- item end-->
+
+    <!-- item start-->
+    <navigator url="../myActivityList/myActivityList" class="me-item">
+      <view class="me-item-pre">
+        <image class="item-icon" src="../../images/acti2.png"></image>
+        <text class="item-text">我的活动</text>
+      </view>
+      <image class="item-arrow" src="../../images/right_arrow.png"></image>
+    </navigator>
+    <!-- item end-->
+
+    <!-- item start-->
+    <navigator url="../myVoteList/myVoteList" class="me-item">
+      <view class="me-item-pre">
+        <image class="item-icon" src="../../images/toupiao.png"></image>
+        <text class="item-text">我的投票</text>
+      </view>
+      <image class="item-arrow" src="../../images/right_arrow.png"></image>
+    </navigator>
+    <!-- item end-->
+  </view>
+</view>

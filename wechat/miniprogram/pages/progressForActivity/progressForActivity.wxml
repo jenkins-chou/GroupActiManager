@@ -1,0 +1,31 @@
+
+<view class="container">
+
+  <view class="list">
+
+  <checkbox-group bindchange="checkboxChange">
+    <block wx:for-items="{{list}}" wx:for-item="item">
+    <!-- item start-->
+    <view class="me-item">
+
+      <view class="me-item-pre">
+        <checkbox value="{{item.id}}"/>
+        <!-- <image class="me-item-header-icon" src="../../images/toupiao.png"></image> -->
+        <view class="me-item-header">
+          <text class="item-title">{{item.progress}}</text>
+          <text class="item-detail">{{item.complete_time}}</text>
+        </view>
+      </view>
+      
+    </view>
+    <!-- item end-->
+
+      </block>
+    </checkbox-group>
+
+  </view>
+  <view class="footer">
+    <text class="footer-text footer-delete" bindtap="deleteFunc">删除</text>
+    <navigator url="../progressForActivityEdit/progressForActivityEdit?activity_id={{activity_id}}" class="footer-text footer-add">添加</navigator>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!--miniprogram/pages/m y.wxml-->
+
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">进度说明</text>
+      <input class="common-input" placeholder="请输入" bindinput="bindProgressChange"></input>
+    </view>
+
+    <!-- section start-->
+    <view class="section">
+      <text class="common-title">时间</text>
+      <input class="common-input" placeholder="请输入" bindinput="bindCompleteTimeChange"></input>
+    </view>
+    <!-- section end-->
+  </view>
+
+  <view class="footer" bindtap="submit">
+   <text class="footer-text" >提交</text>
+  </view>
+  
+</view>

@@ -1,0 +1,32 @@
+
+<view class="container">
+
+<checkbox-group bindchange="checkboxChange">
+  <view class="list">
+    <block wx:if="{{list.length >= 0}}">
+      <block wx:for-items="{{list}}" wx:for-item="item">
+      <!-- item start-->
+      <view class="me-item">
+        <view class="me-item-pre">
+          <checkbox value="{{item.id}}" checked="true"/>
+          <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
+          <view class="me-item-header">
+            <text class="item-title">{{item.nickName}}</text>
+          </view>
+        </view>
+        
+        <view class="me-item-pre">
+          
+        </view>
+      </view>
+      <!-- item end-->
+      </block>
+    </block>
+  </view>
+</checkbox-group>
+  
+  <view bindtap="backTo" class="footer">
+   <text class="footer-text">完成</text>
+  </view>
+
+</view>

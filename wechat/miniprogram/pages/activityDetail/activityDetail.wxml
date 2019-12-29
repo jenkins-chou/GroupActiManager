@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<view class="container">
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" >
+  <view class="content">
+    <view class="activity-base">
+      <text class="title-mask">标题</text>
+      <text class="title-value">{{activityDetail.title}} </text>
+      <text class="title-mask title-mask2">主要活动方案</text>
+      <text class="title-value">{{activityDetail.programme_main}} </text>
+      <text class="title-mask title-mask3">备用活动方案</text>
+      <text class="title-value">{{activityDetail.programme_spare}} </text>
+      <text class="title-mask title-mask4">开始时间</text>
+      <text class="title-value">{{activityDetail.start_time}} </text>
+      <text class="title-mask title-mask4">结束时间</text>
+      <text class="title-value">{{activityDetail.end_time}} </text>
+      <text class="title-mask title-mask2">活动地点</text>
+      <text class="title-value">{{activityDetail.address}} </text>
+      
+    </view>
+
+    <view class="vote-list-header">
+      <text class="title-mask title-mask3">相关投票</text>
+      <navigator url="../votesForActivity/votesForActivity?activity_id={{activityDetail.id}}" class="title-link">编辑</navigator>
+    </view>
+    
+    <!-- vote-list -->
+    <view class="vote-list">
+      <block wx:for-items="{{votesForActivity}}" wx:for-item="item">
+        <navigator url="../voteDetail/voteDetail?id={{item.id}}" class="vote-list-item">
+          <text class="vote-list-item-title">{{item.title}}</text>
+          <text class="vote-list-item-value">开始时间{{item.start_time}}</text>
+        </navigator>
+      </block>
+    </view>
+    <!-- vote-list -->
+
+     <view class="vote-list-header">
+      <text class="title-mask title-mask4">筹备进度</text>
+      <navigator url="../progressForActivity/progressForActivity?activity_id={{activityDetail.id}}" class="title-link">编辑</navigator>
+    </view>
+    
+    <!-- vote-list -->
+    <view class="vote-list">
+      <block wx:for-items="{{progressForActivity}}" wx:for-item="item">
+        <view class="vote-list-item2">
+          <text class="vote-list-item-title">{{item.progress}}:</text>
+          <text class="vote-list-item-value">  {{item.complete_time}}</text>
+        </view>
+      </block>
+    </view>
+    <!-- vote-list -->
+
+     <view class="vote-list-header">
+      <text class="title-mask">活动账单</text>
+      <text class="vote-list-item-title">总额：600</text>
+      <navigator url="../billForActivity/billForActivity?activity_id={{activityDetail.id}}" class="title-link">编辑</navigator>
+    </view>
+    
+    <!-- vote-list -->
+    <view class="vote-list">
+      <block wx:for-items="{{billForActivity}}" wx:for-item="item">
+        <view class="vote-list-item2">
+          <text class="vote-list-item-title">{{item.detail}}:</text>
+          <text class="vote-list-item-value">  {{item.bill}}</text>
+        </view>
+      </block>
+    </view>
+    <!-- vote-list -->
+    
+  </view>
+  <view class="content">
+    <view class="comment-header">
+      <text class="title-mask">评论区</text>
+      <navigator url="../commentEdit/commentEdit?activity_id={{activityDetail.id}}&fromWhere='activity'" class="title-link">添加评论</navigator>
+    </view>
+
+    <block wx:for-items="{{commentList}}" wx:for-item="item">
+    <!-- comment-list-ite-->
+    <view class="comment-list-item">
+      <view>
+        <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
+        <text class="title-link">{{item.nickName}}</text>
+        <text class="title-value">:{{item.comment}}</text>
+      </view>
+
+      <view class="comment-right">
+        <text class="title-mask">0人点赞</text>
+        <image class="comment-like-icon" src="../../images/like_normal.png"></image>
+      </view>
+
+    </view>
+    <!-- comment-list-ite-->
+    </block>
+
+  </view>
+</scroll-view>
+</view>
+

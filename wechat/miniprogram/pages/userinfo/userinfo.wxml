@@ -1,0 +1,15 @@
+<view class="container">
+
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <view class="page-body-info">
+        <image class="userinfo-avatar" src="{{userinfo.avatarUrl}}"></image>
+        <text class="userinfo-nickname">{{userinfo.nickName}}</text>
+      </view>
+      <view class="page-body-buttons">
+      </view>
+    </view>
+  </view>
+
+  
+</view>

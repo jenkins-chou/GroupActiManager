@@ -1,0 +1,15 @@
+<!--miniprogram/pages/m y.wxml-->
+
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">评论内容</text>
+      <input class="common-input" placeholder="请输入" bindinput="bindCommentValueChange"></input>
+    </view>
+  </view>
+
+  <view class="footer" bindtap="submit">
+   <text class="footer-text">提交</text>
+  </view>
+  
+</view>

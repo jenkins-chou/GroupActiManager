@@ -1,0 +1,32 @@
+
+<view class="container">
+
+  <view class="list">
+  <checkbox-group bindchange="checkboxChange">
+    <block wx:for-items="{{list}}" wx:for-item="item">
+      <view class="me-item">
+
+      <view class="me-item-pre">
+        <checkbox value="{{item.id}}"/>
+        <image class="me-item-header-icon" src="../../images/toupiao.png"></image>
+        <view class="me-item-header">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-detail">{{item.start_time}}</text>
+        </view>
+      </view>
+      
+      <view class="me-item-pre">
+        <text class="item-text item-text-active ">进行中</text>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+      
+    </view>
+    </block>
+    </checkbox-group>
+  </view>
+
+  <view class="footer" bindtap="submit">
+   <text class="footer-text">提交</text>
+  </view>
+  
+</view>

@@ -1,0 +1,58 @@
+<!--miniprogram/pages/m y.wxml-->
+
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">标题</text>
+      <input class="common-input" placeholder="请输入" bindchange="bindTitleChange"></input>
+    </view>
+
+    <!-- section start-->
+    <view class="section">
+         <text class="common-title">开始时间</text>
+        <picker mode="date" value="{{start_time}}" start="2019-09-01" end="2022-09-01" bindchange="bindStartTimeChange">
+          <view class="common-input">
+            {{start_time}}
+          </view>
+        </picker>
+    </view>
+    <!-- section end-->
+
+     <!-- section start-->
+    <view class="section">
+         <text class="common-title">结束时间</text>
+        <picker mode="date" value="{{end_time}}" start="2019-09-01" end="2022-09-01" bindchange="bindEndTimeChange">
+          <view class="common-input">
+            {{end_time}}
+          </view>
+        </picker>
+    </view>
+    <!-- section end-->
+
+    <view class="section">
+      <text class="common-title">活动地点</text>
+      <input class="common-input" placeholder="请输入" bindchange="bindAddressChange"></input>
+    </view>
+
+    <view class="section">
+      <text class="common-title">主要活动方案</text>
+      <textarea class="common-textarea" bindblur="bindProgrammeMainChange">
+      </textarea> 
+    </view>
+
+    <view class="section">
+      <text class="common-title">备选方案</text>
+      <textarea class="common-textarea" bindblur="bindProgrammeSpareChange">
+      </textarea> 
+    </view>
+
+    <view class="section">
+      <text class="common-title link">人员安排</text>
+    </view>
+  </view>
+
+  <view class="footer" bindtap="submit">
+   <text class="footer-text">提交</text>
+  </view>
+  
+</view>

@@ -1,0 +1,31 @@
+
+<view class="container">
+
+  <view class="list">
+    <block wx:if="{{list == null }}">
+        <view class="me-item-pre">
+          <text class="item-msg"></text>
+          <text class="item-msg">通讯录为空</text>
+        </view>
+    </block>
+    <block wx:if="{{list.length >= 0}}">
+      <block wx:for-items="{{list}}" wx:for-item="item">
+      <!-- item start-->
+      <navigator url="../userinfo/userinfo?user_id={{item.id}}" class="me-item">
+
+        <view class="me-item-pre">
+          <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
+          <view class="me-item-header">
+            <text class="item-title">{{item.nickName}}</text>
+            <text class="item-msg"></text>
+          </view>
+        </view>
+        <view class="me-item-pre">
+        </view>
+      </navigator>
+      <!-- item end-->
+      </block>
+    </block>
+
+  </view>
+</view>

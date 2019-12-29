@@ -1,0 +1,59 @@
+/* miniprogram/pages/m y.wxss */
+
+.container{
+  background: #fff;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content{
+  padding: 30rpx;
+}
+
+.section{
+  margin-top: 20rpx;
+  margin-bottom: 0rpx;
+}
+
+.common-title{
+  
+  color: #666;
+  font-size: 30rpx;
+}
+
+.link{
+  color: #4577d4;
+}
+
+.common-input{
+  margin-top: 30rpx;
+  padding:20rpx;
+  font-size: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  border: solid 1px;
+  border-color: #f0f0f0;
+}
+
+.common-textarea{
+  background: #fff;
+  padding:20rpx;
+  width:93%;
+  border-radius: 10rpx;
+  border: solid 1px;
+  border-color: #f0f0f0;
+}
+
+.footer{
+  background: #4577d4;
+  padding: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text{
+  color: #fff;
+  font-size: 25rpx;
+}

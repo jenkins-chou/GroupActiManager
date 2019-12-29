@@ -1,0 +1,38 @@
+
+<view class="container">
+
+  <view class="list">
+    <!-- item start-->
+    <navigator url="../activityEdit/activityEdit" class="me-item">
+
+      <view class="me-item-header">
+        <text class="item-title">团队活动</text>
+        <text class="item-detail">团建/聚会/班级 等多人活动</text>
+      </view>
+      <view class="me-item-pre">
+        <image class="item-icon" src="../../images/acti2.png"></image>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+    </navigator>
+    <!-- item end-->
+
+ <!-- item start-->
+    <navigator url="../voteEdit/voteEdit" class="me-item">
+
+      <view class="me-item-header">
+        <text class="item-title">投票活动</text>
+        <text class="item-detail">进行多人投票</text>
+      </view>
+      <view class="me-item-pre">
+        <image class="item-icon" src="../../images/toupiao.png"></image>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+    </navigator>
+    <!-- item end-->
+  </view>
+
+  <navigator open-type="navigateBack" class="footer">
+   <text class="footer-text">返回首页</text>
+  </navigator>
+  
+</view>

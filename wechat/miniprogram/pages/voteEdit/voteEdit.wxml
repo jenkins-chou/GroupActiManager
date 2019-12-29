@@ -1,0 +1,75 @@
+<!--miniprogram/pages/m y.wxml-->
+
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">标题</text>
+      <input class="common-input" placeholder="请输入" bindchange="bindTitleChange"></input>
+    </view>
+
+    <!-- section start-->
+    <view class="section">
+         <text class="common-title">开始时间</text>
+        <picker mode="date" value="{{start_time}}" start="2015-09-01" end="2020-09-01" bindchange="bindStartTimeChange">
+          <view class="common-input">
+            {{start_time}}
+          </view>
+        </picker>
+    </view>
+    <!-- section end-->
+
+    <!-- section start-->
+    <view class="section">
+         <text class="common-title">结束时间</text>
+        <picker mode="date" value="{{end_time}}" start="2015-09-01" end="2020-09-01" bindchange="bindEndTimeChange">
+          <view class="common-input">
+            {{end_time}}
+          </view>
+        </picker>
+    </view>
+    <!-- section end-->
+
+    <view class="section">
+      <text class="common-title">详细描述</text>
+      <textarea class="common-textarea" bindblur="bindDetailChange">
+      </textarea> 
+    </view>
+    <view class="block"></view>
+    <view class="vote-list-header">
+      <text class="title-mask title-mask3">选项</text>
+      <navigator url="../voteItemEdit/voteItemEdit" class="title-link">添加</navigator>
+    </view>
+    
+    <!-- -list -->
+    <view class="vote-list">
+      <block wx:for-items="{{vote_item}}" wx:for-item="item" wx:for-index="bindex">
+        <view class="vote-list-item">
+          <text class="vote-list-item-title">{{item}}</text>
+          <text class="vote-list-item-value" data-index="{{bindex}}" bindtap="deleteItem">删除</text>
+        </view>
+      </block>
+    </view>
+    <!-- vote-list -->
+
+    <view class="vote-list-header">
+      <text class="title-mask title-mask3">谁可以投票</text>
+      <navigator url="../selectUser/selectUser" class="title-link">编辑</navigator>
+    </view>
+    
+    <!-- -list -->
+    <view class="vote-list">
+      <block wx:for-items="{{vote_members}}" wx:for-item="item">
+        <navigator url="../voteDetail/voteDetail?id={{item.id}}" class="vote-list-item">
+          <text class="vote-list-item-title">{{item.title}}</text>
+          <text class="vote-list-item-value">开始时间{{item.start_time}}</text>
+        </navigator>
+      </block>
+    </view>
+    <!-- vote-list -->
+  </view>
+
+  <view class="footer" bindtap="submit">
+   <text class="footer-text">提交</text>
+  </view>
+  
+</view>

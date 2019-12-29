@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/me/me",
+    "pages/createActivity/createActivity",
+    "pages/myActivity/myActivity",
+    "pages/allActivity/allActivity",
+    "pages/allVote/allVote",
+    "pages/userinfo/userinfo",
+    "pages/activityEdit/activityEdit",
+    "pages/voteEdit/voteEdit",
+    "pages/myActivityList/myActivityList",
+    "pages/myVoteList/myVoteList",
+    "pages/selectUser/selectUser",
+    "pages/voteDetail/voteDetail",
+    "pages/contactList/contactList",
+    "pages/votesForActivity/votesForActivity",
+    "pages/progressForActivity/progressForActivity",
+    "pages/progressForActivityEdit/progressForActivityEdit",
+    "pages/billForActivity/billForActivity",
+    "pages/billForActivityEdit/billForActivityEdit",
+    "pages/test/test",
+    "pages/votesForActivitySelect/votesForActivitySelect",
+    "pages/commentEdit/commentEdit",
+    "pages/voteItemEdit/voteItemEdit"
+  ],
+  "window": {
+    "backgroundColor": "#f6f6f6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "群活动管理",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#cccccc",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/acti_normal.png",
+        "selectedIconPath": "images/acti.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/contactList/contactList",
+        "iconPath": "images/contact_normal.png",
+        "selectedIconPath": "images/contact.png",
+        "text": "通讯录"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "images/mine_normal.png",
+        "selectedIconPath": "images/mine.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

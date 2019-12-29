@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "投票详情",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,45 @@
+<!--index.wxml-->
+
+<view class="container">
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower">
+  <view class="content">
+    <text class="title-mask">标题</text>
+    <text class="title-value">{{voteDetail.title}} </text>
+    <text class="title-mask">详细描述</text>
+    <text class="title-value">{{voteDetail.detail}} </text>
+    <text class="title-mask">开始时间</text>
+    <text class="title-value">{{voteDetail.start_time}}</text>
+    <text class="title-mask">结束时间</text>
+    <text class="title-value">{{voteDetail.end_time}} </text>
+    <text class="title-mask">投票结果</text>
+  </view>
+  <view class="content">
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas>
+  </view>
+  <view class="content">
+    <view class="comment-header">
+      <text class="title-mask">评论区</text>
+      <navigator url="../commentEdit/commentEdit?vote_id={{vote_id}}&fromWhere=vote" class="title-link">添加评论</navigator>
+    </view>
+   <block wx:for-items="{{commentList}}" wx:for-item="item">
+    <!-- comment-list-ite-->
+    <view class="comment-list-item">
+      <view>
+        <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
+        <text class="title-link">{{item.nickName}}</text>
+        <text class="title-value">:{{item.comment}}</text>
+      </view>
+
+      <view class="comment-right">
+        <text class="title-mask">0人点赞</text>
+        <image class="comment-like-icon" src="../../images/like_normal.png"></image>
+      </view>
+
+    </view>
+    <!-- comment-list-ite-->
+    </block>
+    </view>
+  </scroll-view>
+</view>
+
+

@@ -1,0 +1,118 @@
+/* miniprogram/pages/m y.wxss */
+
+.container{
+  background: #fff;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content{
+  padding: 30rpx;
+}
+
+.section{
+  margin-top: 20rpx;
+  margin-bottom: 0rpx;
+}
+
+.common-title{
+  
+  color: #666;
+  font-size: 30rpx;
+}
+
+.link{
+  color: #4577d4;
+}
+
+.common-input{
+  margin-top: 30rpx;
+  padding:20rpx;
+  font-size: 30rpx;
+  background: #f0f0f0;
+}
+
+.common-textarea{
+  background: #f0f0f0;
+  width: 100%;
+}
+
+
+.footer{
+  background: #4577d4;
+  padding: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text{
+  color: #fff;
+  font-size: 25rpx;
+}
+
+.vote-list-header{
+  width:95%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.vote-list{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx;
+  background: #f6f6f6;
+  margin-top:30rpx;
+  margin-bottom:30rpx;
+}
+
+.vote-list-item{
+  width:90%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  margin-top:10rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.vote-list-item-title{
+  color: #666;
+  font-size: 30rpx;
+}
+
+.vote-list-item-value{
+  color: #999;
+  font-size: 30rpx;
+}
+
+.title-mask{
+  color: #fff;
+  font-size: 20rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  border-radius: 10rpx;
+  background: #6c8cd5;
+}
+
+.title-link{
+  color: #6c8cd5;
+  font-size: 30rpx;
+}
+
+.title-link:active{
+  color: #6c8cd566;
+}
+
+.block{
+  height:50rpx;
+}

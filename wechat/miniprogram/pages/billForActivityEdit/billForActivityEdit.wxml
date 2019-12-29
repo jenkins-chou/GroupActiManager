@@ -1,0 +1,22 @@
+<!--miniprogram/pages/m y.wxml-->
+
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">说明</text>
+      <input class="common-input" placeholder="请输入" bindinput="bindDetailChange"></input>
+    </view>
+
+    <!-- section start-->
+    <view class="section">
+      <text class="common-title">金额</text>
+      <input class="common-input" placeholder="请输入" bindinput="bindBillChange"></input>
+    </view>
+    <!-- section end-->
+  </view>
+
+  <view class="footer" bindtap="submit">
+   <text class="footer-text">提交</text>
+  </view>
+  
+</view>

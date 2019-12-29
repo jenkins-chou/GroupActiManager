@@ -1,0 +1,57 @@
+/* miniprogram/pages/me/me.wxss */
+.userinfo-avatar {
+  border-radius: 128rpx;
+  width: 128rpx;
+  height: 128rpx;
+}
+.userinfo-nickname {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+}
+
+.page-body-wrapper {
+  margin-top: 30rpx;
+}
+
+.page-body-info {
+  border-radius: 28rpx;
+}
+
+.me-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 82%;
+  background: #fff;
+  border-radius: 0rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.me-item:active{
+  background: #f2f2f2;
+}
+
+.me-item-pre{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.item-text{
+  color: #999999;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.item-arrow{
+  width: 30rpx;
+  height: 30rpx;
+}

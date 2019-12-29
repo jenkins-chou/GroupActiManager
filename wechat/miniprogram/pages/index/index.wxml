@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="swiper-bg">
+    <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" 
+                    class="swiper">
+                <block wx:for-items="{{imagePath}}">
+                    <swiper-item>
+                        <image class="swiper-image" src="{{item}}"></image>
+                        <!-- <view class="swiper-item bc_{{item}}"></view> -->
+                    </swiper-item>
+                </block>
+    </swiper>
+  </view>
+
+  <!-- line start-->
+  <view class="item-line2">
+
+    <navigator url="../createActivity/createActivity" class="item-block2 create_acti">
+      <image class="item-block-icon2 " src="../../images/create_acti.png"></image>
+      <text class="item-block-text2">创建活动</text>
+    </navigator>
+ 
+    <navigator url="../myActivity/myActivity"  class="item-block2 mine-acti">
+      <image class="item-block-icon2 " src="../../images/mine_acti.png"></image>
+      <text class="item-block-text2">我的活动</text>
+    </navigator>
+
+  </view>
+  <!-- line end-->
+
+  <view class="item2-content">
+    <text class="item2-content-title">热门</text>
+
+    <!-- line start-->
+  <view class="item-line">
+    <navigator url="../allActivity/allActivity" class="item-block">
+      <image class="item-block-icon" src="../../images/acti2.png"></image>
+      <text class="item-block-text">活动列表</text>
+    </navigator>
+
+    <navigator url="../allVote/allVote" class="item-block">
+      <image class="item-block-icon" src="../../images/toupiao.png"></image>
+          <text class="item-block-text">投票列表</text>
+    </navigator>
+
+  </view>
+  <!-- line end-->
+
+  </view>
+  
+</view>

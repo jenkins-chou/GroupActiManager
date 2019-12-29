@@ -1,0 +1,32 @@
+
+<view class="container">
+
+  <view class="list">
+  <checkbox-group bindchange="checkboxChange">
+    <block wx:for-items="{{list}}" wx:for-item="item">
+      <view class="me-item">
+
+      <view class="me-item-pre">
+        <checkbox value="{{item.activity_vote_id}}"/>
+        <image class="me-item-header-icon" src="../../images/toupiao.png"></image>
+        <navigator url="../voteDetail/voteDetail?id={{item.id}}" class="me-item-header">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-detail">{{item.start_time}}</text>
+        </navigator>
+      </view>
+      
+      <view class="me-item-pre">
+        <text class="item-text item-text-active ">进行中</text>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+      
+    </view>
+    </block>
+    </checkbox-group>
+
+  </view>
+  <view class="footer">
+    <text class="footer-text footer-delete" bindtap="deleteFunc">删除</text>
+    <navigator url="../votesForActivitySelect/votesForActivitySelect?activity_id={{activity_id}}" class="footer-text footer-add">添加</navigator>
+  </view>
+</view>

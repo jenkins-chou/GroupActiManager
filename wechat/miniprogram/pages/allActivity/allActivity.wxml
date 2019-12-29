@@ -1,0 +1,45 @@
+
+<view class="container">
+
+  <view class="list">
+
+    <!-- item start-->
+    <!-- <navigator url="../activityDetail/activityDetail" class="me-item">
+
+      <view class="me-item-pre">
+        <image class="me-item-header-icon" src="../../images/acti2.png"></image>
+        <view class="me-item-header">
+          <text class="item-title">软件1172班12月团支部活动</text>
+          <text class="item-detail">开始时间：2019年12月24日</text>
+        </view>
+      </view>
+      
+      <view class="me-item-pre">
+        <text class="item-text item-text-active ">进行中</text>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+      
+    </navigator> -->
+    <!-- item end -->
+
+    <block wx:for-items="{{list}}" wx:for-item="item">
+    <navigator url="../activityDetail/activityDetail?id={{item.id}}" class="me-item">
+      <view class="me-item-pre">
+        <image class="me-item-header-icon" src="../../images/acti2.png"></image>
+        <view class="me-item-header">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-detail">{{item.start_time}}</text>
+        </view>
+      </view>
+      
+      <view class="me-item-pre">
+        <text class="item-text item-text-active ">进行中</text>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+      
+      </navigator>
+    </block>
+
+  </view>
+  
+</view>

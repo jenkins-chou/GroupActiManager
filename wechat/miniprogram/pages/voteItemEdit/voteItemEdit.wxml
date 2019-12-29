@@ -1,0 +1,15 @@
+<!--miniprogram/pages/m y.wxml-->
+
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">选项内容</text>
+      <input class="common-input" placeholder="请输入" bindinput="bindValueChange"></input>
+    </view>
+  </view>
+
+  <view class="footer" bindtap="onAdd">
+   <text class="footer-text">确定添加</text>
+  </view>
+  
+</view>
