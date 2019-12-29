@@ -23,7 +23,8 @@
     "pages/test/test",
     "pages/votesForActivitySelect/votesForActivitySelect",
     "pages/commentEdit/commentEdit",
-    "pages/voteItemEdit/voteItemEdit"
+    "pages/voteItemEdit/voteItemEdit",
+    "pages/voteDetailOnVote/voteDetailOnVote"
   ],
   "window": {
     "backgroundColor": "#f6f6f6",

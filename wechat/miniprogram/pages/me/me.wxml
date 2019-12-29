@@ -18,33 +18,33 @@
     </view>
 
     <!-- item start-->
-     <navigator url="../userinfo/userinfo?user_id={{user_id}}" class="me-item">
+     <view data-url="../userinfo/userinfo?user_id={{user_id}}" bindtap="bindNavigate" class="me-item">
       <view class="me-item-pre">
         <image class="item-icon" src="../../images/persion.png"></image>
         <text class="item-text">个人信息</text>
       </view>
       <image class="item-arrow" src="../../images/right_arrow.png"></image>
-    </navigator>
+    </view>
     <!-- item end-->
 
     <!-- item start-->
-    <navigator url="../myActivityList/myActivityList" class="me-item">
+    <view data-url="../myActivityList/myActivityList"  bindtap="bindNavigate" class="me-item">
       <view class="me-item-pre">
         <image class="item-icon" src="../../images/acti2.png"></image>
         <text class="item-text">我的活动</text>
       </view>
       <image class="item-arrow" src="../../images/right_arrow.png"></image>
-    </navigator>
+    </view>
     <!-- item end-->
 
     <!-- item start-->
-    <navigator url="../myVoteList/myVoteList" class="me-item">
+    <view data-url="../myVoteList/myVoteList"  bindtap="bindNavigate" class="me-item">
       <view class="me-item-pre">
         <image class="item-icon" src="../../images/toupiao.png"></image>
         <text class="item-text">我的投票</text>
       </view>
       <image class="item-arrow" src="../../images/right_arrow.png"></image>
-    </navigator>
+    </view>
     <!-- item end-->
   </view>
 </view>

@@ -50,6 +50,23 @@ public class VoteItemController  extends Controller {
 	}
 	
 	@CrossOrigin
+	public void getAllByVoteId(){
+		String vote_id = getPara("vote_id");
+		List<VoteItemModel> models = VoteItemModel.dao.find("select * from "+DB_TABLE+" where vote_id = "+vote_id+" and del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(models!=null&&models.size()>=1){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, models);
+			System.out.println(JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			System.out.println("model:");
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
+	}
+	
+	@CrossOrigin
 	public void get(){
 		String id = getPara("id");
 		List<VoteItemModel> models = VoteItemModel.dao.find("select * from "+DB_TABLE+" where id = "+id+" and  del != 'delete'");
@@ -96,6 +113,7 @@ public class VoteItemController  extends Controller {
 			renderJson(JsonKit.toJson(js));
 		}
 	}
+
 	
 	@CrossOrigin
 	public void delete(){

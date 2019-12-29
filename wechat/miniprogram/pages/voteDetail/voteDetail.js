@@ -1,7 +1,8 @@
 import * as echarts from '../../ec-canvas/echarts';
 
 const app = getApp();
-
+var dataSrc = [];
+var chart;
 function initChart(canvas, width, height) {
   const chart = echarts.init(canvas, null, {
     width: width,
@@ -21,23 +22,7 @@ function initChart(canvas, width, height) {
       type: 'pie',
       center: ['50%', '50%'],
       radius: [0, '60%'],
-      data: [{
-        value: 55,
-        name: '北京'
-      }, {
-        value: 20,
-        name: '武汉'
-      }, {
-        value: 10,
-        name: '杭州'
-      }, {
-        value: 20,
-        name: '广州'
-      }, {
-        value: 38,
-        name: '上海'
-      },
-      ],
+      data: dataSrc,
       itemStyle: {
         emphasis: {
           shadowBlur: 10,
@@ -50,6 +35,16 @@ function initChart(canvas, width, height) {
 
   chart.setOption(option);
   return chart;
+}
+
+function refreshData(data) {
+  if (chart != null){
+    //刷新数据
+    var option = chart.getOption();
+    option.series[0].data = data;
+    chart.setOption(option);
+  }
+  
 }
 
 Page({
@@ -66,7 +61,8 @@ Page({
     },
     vote_id:null,
     voteDetail: null,
-    commentList:null
+    commentList:null,
+    voteOnList:[]
   },
   onLoad: function (options){
     this.setData({
@@ -85,17 +81,30 @@ Page({
         }
       }
     })
-    
+
+    wx.request({
+      url: app.globalBaseUrl + '/vote_item/getAllByVoteId',
+      data: { vote_id: options.id },
+      success(result) {
+        console.log(result.data);
+        if (result.data.code == 200) {
+          that.setData({
+            vote_item: result.data.data
+          })
+        }
+      }
+    })
   },
   onReady() {
   },
 
   onShow:function(){
     this.getComment();
+    this.getVoteOnDetail();
   },
 
   echartInit(e) {
-    initChart(e.detail.canvas, e.detail.width, e.detail.height);
+    chart = initChart(e.detail.canvas, e.detail.width, e.detail.height);
   },
   getComment: function () {
     var that = this;
@@ -108,6 +117,27 @@ Page({
           that.setData({
             commentList: result.data.data
           })
+        }
+      }
+    })
+  },
+  gotoVoteOn:function(){
+    wx.navigateTo({
+      url: '../voteDetailOnVote/voteDetailOnVote?vote_id=' + this.data.vote_id,
+    })
+  },
+  getVoteOnDetail:function(){
+    var that = this;
+    wx.request({
+      url: app.globalBaseUrl + '/vote_member/getVoteOnDetail',
+      data: { vote_id: this.data.vote_id },
+      success(result) {
+        console.log("getVoteOnDetail-------------");
+        console.log(result.data);
+        if (result.data.code == 200) {
+          //dataSrc = result.data.data;
+          refreshData(result.data.data);
+
         }
       }
     })

@@ -1,21 +1,19 @@
 /*
- Navicat Premium Data Transfer
+Navicat MySQL Data Transfer
 
- Source Server         : root
- Source Server Type    : MySQL
- Source Server Version : 50727
- Source Host           : localhost:3306
- Source Schema         : group_acti_manager
+Source Server         : root
+Source Server Version : 50728
+Source Host           : localhost:3306
+Source Database       : group_acti_manager
 
- Target Server Type    : MySQL
- Target Server Version : 50727
- File Encoding         : 65001
+Target Server Type    : MYSQL
+Target Server Version : 50728
+File Encoding         : 65001
 
- Date: 29/12/2019 17:30:08
+Date: 2019-12-29 23:05:47
 */
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for activity
@@ -39,11 +37,9 @@ CREATE TABLE `activity` (
 -- ----------------------------
 -- Records of activity
 -- ----------------------------
-BEGIN;
-INSERT INTO `activity` VALUES (8, 'title', '2019-09-01', '2019-09-01', '9', 'main', '见客户', '的', '1577192069', NULL, 'normal');
-INSERT INTO `activity` VALUES (9, NULL, '2019-09-01', '2019-09-01', '16', NULL, NULL, '发发发', '1577199308', NULL, 'normal');
-INSERT INTO `activity` VALUES (10, 'hdbxhdddddd', '2019-09-01', '2019-09-01', '17', NULL, NULL, NULL, '1577274374', NULL, 'normal');
-COMMIT;
+INSERT INTO `activity` VALUES ('8', 'title', '2019-09-01', '2019-09-01', '9', 'main', '见客户', '的', '1577192069', null, 'normal');
+INSERT INTO `activity` VALUES ('9', null, '2019-09-01', '2019-09-01', '16', null, null, '发发发', '1577199308', null, 'normal');
+INSERT INTO `activity` VALUES ('10', 'hdbxhdddddd', '2019-09-01', '2019-09-01', '17', null, null, null, '1577274374', null, 'normal');
 
 -- ----------------------------
 -- Table structure for activity_bill
@@ -63,12 +59,10 @@ CREATE TABLE `activity_bill` (
 -- ----------------------------
 -- Records of activity_bill
 -- ----------------------------
-BEGIN;
-INSERT INTO `activity_bill` VALUES (1, '8', 'jind', '200', '1577287993', NULL, 'delete');
-INSERT INTO `activity_bill` VALUES (2, '8', 'fdsfd', '3333', '1577288180', NULL, 'delete');
-INSERT INTO `activity_bill` VALUES (3, '8', 'zhangdan', '3000', '1577289203', NULL, 'normal');
-INSERT INTO `activity_bill` VALUES (4, '8', '我也是', '金额', '1577289972', NULL, 'normal');
-COMMIT;
+INSERT INTO `activity_bill` VALUES ('1', '8', 'jind', '200', '1577287993', null, 'delete');
+INSERT INTO `activity_bill` VALUES ('2', '8', 'fdsfd', '3333', '1577288180', null, 'delete');
+INSERT INTO `activity_bill` VALUES ('3', '8', 'zhangdan', '3000', '1577289203', null, 'normal');
+INSERT INTO `activity_bill` VALUES ('4', '8', '我也是', '金额', '1577289972', null, 'normal');
 
 -- ----------------------------
 -- Table structure for activity_member
@@ -84,6 +78,10 @@ CREATE TABLE `activity_member` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of activity_member
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for activity_progress
@@ -103,12 +101,10 @@ CREATE TABLE `activity_progress` (
 -- ----------------------------
 -- Records of activity_progress
 -- ----------------------------
-BEGIN;
-INSERT INTO `activity_progress` VALUES (1, '8', 'dsad', 'asddsa', '1577286975', NULL, 'delete');
-INSERT INTO `activity_progress` VALUES (2, '8', 'fffffff', '2222', '1577287232', NULL, 'delete');
-INSERT INTO `activity_progress` VALUES (3, '8', 'huo', 'dsads', '1577287328', NULL, 'delete');
-INSERT INTO `activity_progress` VALUES (4, '8', '物资准备完毕', '2019年', '1577287392', NULL, 'normal');
-COMMIT;
+INSERT INTO `activity_progress` VALUES ('1', '8', 'dsad', 'asddsa', '1577286975', null, 'delete');
+INSERT INTO `activity_progress` VALUES ('2', '8', 'fffffff', '2222', '1577287232', null, 'delete');
+INSERT INTO `activity_progress` VALUES ('3', '8', 'huo', 'dsads', '1577287328', null, 'delete');
+INSERT INTO `activity_progress` VALUES ('4', '8', '物资准备完毕', '2019年', '1577287392', null, 'normal');
 
 -- ----------------------------
 -- Table structure for activity_votes
@@ -127,19 +123,17 @@ CREATE TABLE `activity_votes` (
 -- ----------------------------
 -- Records of activity_votes
 -- ----------------------------
-BEGIN;
-INSERT INTO `activity_votes` VALUES (3, '8', '7', NULL, NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (4, '8', '8', NULL, NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (5, '8', '7', '1577284318', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (6, '8', '8', '1577284318', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (7, '8', '7', '1577285320', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (8, '8', '7', '1577285344', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (9, '8', '8', '1577285344', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (10, '8', '8', '1577285522', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (11, '8', '8', '1577285532', NULL, 'delete');
-INSERT INTO `activity_votes` VALUES (12, '8', '7', '1577286001', NULL, 'normal');
-INSERT INTO `activity_votes` VALUES (13, '8', '8', '1577286001', NULL, 'delete');
-COMMIT;
+INSERT INTO `activity_votes` VALUES ('3', '8', '7', null, null, 'delete');
+INSERT INTO `activity_votes` VALUES ('4', '8', '8', null, null, 'delete');
+INSERT INTO `activity_votes` VALUES ('5', '8', '7', '1577284318', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('6', '8', '8', '1577284318', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('7', '8', '7', '1577285320', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('8', '8', '7', '1577285344', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('9', '8', '8', '1577285344', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('10', '8', '8', '1577285522', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('11', '8', '8', '1577285532', null, 'delete');
+INSERT INTO `activity_votes` VALUES ('12', '8', '7', '1577286001', null, 'normal');
+INSERT INTO `activity_votes` VALUES ('13', '8', '8', '1577286001', null, 'delete');
 
 -- ----------------------------
 -- Table structure for base_menu
@@ -164,27 +158,25 @@ CREATE TABLE `base_menu` (
 -- ----------------------------
 -- Records of base_menu
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_menu` VALUES (1, '系统设置', '1', '0', NULL, '', 999, '', '4', '', '', 'delete');
-INSERT INTO `base_menu` VALUES (5, '菜单设置', '2', '1', NULL, '../pages/manager/system/menu.html', 1, NULL, '4', NULL, NULL, 'delete');
-INSERT INTO `base_menu` VALUES (103, '活动模块', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (104, '投票模块', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (105, '用户模块', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (106, '用户列表', '2', '105', NULL, '../pages/manager/base_user/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (107, '用户类型列表', '2', '105', NULL, '../pages/manager/base_user_type/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (108, '用户通讯录列表', '2', '105', NULL, '../pages/manager/contact/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (109, '活动列表', '2', '103', NULL, '../pages/manager/activity/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (110, '活动账单列表', '2', '103', NULL, '../pages/manager/activity_bill/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (111, '活动投票列表', '2', '103', NULL, '../pages/manager/activity_votes/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (112, '活动成员列表', '2', '103', NULL, '../pages/manager/activity_member/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (113, '活动进度列表', '2', '103', NULL, '../pages/manager/activity_progress/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (114, '投票项目列表', '2', '104', NULL, '../pages/manager/vote/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (115, '投票人员列表', '2', '104', NULL, '../pages/manager/vote_member/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (116, '投票选项列表', '2', '104', NULL, '../pages/manager/vote_item/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (117, '评论模块', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (118, '活动评论', '2', '117', NULL, '../pages/manager/comment_activity/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (119, '投票评论', '2', '117', NULL, '../pages/manager/comment_vote/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-COMMIT;
+INSERT INTO `base_menu` VALUES ('1', '系统设置', '1', '0', null, '', '999', '', '4', '', '', 'delete');
+INSERT INTO `base_menu` VALUES ('5', '菜单设置', '2', '1', null, '../pages/manager/system/menu.html', '1', null, '4', null, null, 'delete');
+INSERT INTO `base_menu` VALUES ('103', '活动模块', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('104', '投票模块', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('105', '用户模块', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('106', '用户列表', '2', '105', null, '../pages/manager/base_user/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('107', '用户类型列表', '2', '105', null, '../pages/manager/base_user_type/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('108', '用户通讯录列表', '2', '105', null, '../pages/manager/contact/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('109', '活动列表', '2', '103', null, '../pages/manager/activity/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('110', '活动账单列表', '2', '103', null, '../pages/manager/activity_bill/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('111', '活动投票列表', '2', '103', null, '../pages/manager/activity_votes/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('112', '活动成员列表', '2', '103', null, '../pages/manager/activity_member/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('113', '活动进度列表', '2', '103', null, '../pages/manager/activity_progress/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('114', '投票项目列表', '2', '104', null, '../pages/manager/vote/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('115', '投票人员列表', '2', '104', null, '../pages/manager/vote_member/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('116', '投票选项列表', '2', '104', null, '../pages/manager/vote_item/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('117', '评论模块', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('118', '活动评论', '2', '117', null, '../pages/manager/comment_activity/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('119', '投票评论', '2', '117', null, '../pages/manager/comment_vote/list.html', '1', null, '4', null, null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_message
@@ -205,6 +197,10 @@ CREATE TABLE `base_message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of base_message
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for base_module
 -- ----------------------------
 DROP TABLE IF EXISTS `base_module`;
@@ -222,13 +218,11 @@ CREATE TABLE `base_module` (
 -- ----------------------------
 -- Records of base_module
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_module` VALUES (1, NULL, 'module1', NULL, '1573224661', NULL, 'normal');
-INSERT INTO `base_module` VALUES (2, NULL, NULL, NULL, '1573401476', NULL, 'normal');
-INSERT INTO `base_module` VALUES (3, NULL, NULL, NULL, '1573401482', NULL, 'normal');
-INSERT INTO `base_module` VALUES (4, NULL, NULL, NULL, '1573401496', NULL, 'normal');
-INSERT INTO `base_module` VALUES (5, NULL, NULL, NULL, '1573401513', NULL, 'normal');
-COMMIT;
+INSERT INTO `base_module` VALUES ('1', null, 'module1', null, '1573224661', null, 'normal');
+INSERT INTO `base_module` VALUES ('2', null, null, null, '1573401476', null, 'normal');
+INSERT INTO `base_module` VALUES ('3', null, null, null, '1573401482', null, 'normal');
+INSERT INTO `base_module` VALUES ('4', null, null, null, '1573401496', null, 'normal');
+INSERT INTO `base_module` VALUES ('5', null, null, null, '1573401513', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_state
@@ -245,6 +239,10 @@ CREATE TABLE `base_state` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_state
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for base_user
@@ -280,11 +278,9 @@ CREATE TABLE `base_user` (
 -- ----------------------------
 -- Records of base_user
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_user` VALUES (8, 'admin', 'admin', '系统管理员', '134126', 'email', '联系地址', 'wchat', 'qq', '26', '', 'hello', '地区', '4', '系统管理员', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'normal');
-INSERT INTO `base_user` VALUES (16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5TKbusw9J6uJjiWPkjXPL_E', '周镇健', 'https://wx.qlogo.cn/mmopen/vi_32/4icVyibZoGvQPwBv6wspLAibl2eZrn7wzEg9GXCOX7e3Js9NNUDISxuq76a5NdsoEg9yGF3SXRicweq0HhHVed1vag/132', '1577030934', NULL, 'normal');
-INSERT INTO `base_user` VALUES (17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5b6WqOSpcIdmSExKwMNIcDM', '老周Nice', 'https://wx.qlogo.cn/mmopen/vi_32/tMzQKCOxhNRjpAWh2pgGq9sPx2pvBPticW8NFDu46FwIl2hg4qlYibzduerCo8YEA0ugC8fzKKITMbAJjhGtaJzA/132', '1577274225', NULL, 'normal');
-COMMIT;
+INSERT INTO `base_user` VALUES ('8', 'admin', 'admin', '系统管理员', '134126', 'email', '联系地址', 'wchat', 'qq', '26', '', 'hello', '地区', '4', '系统管理员', null, null, null, null, null, null, null, 'normal');
+INSERT INTO `base_user` VALUES ('16', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'oWOld5TKbusw9J6uJjiWPkjXPL_E', '周镇健', 'https://wx.qlogo.cn/mmopen/vi_32/4icVyibZoGvQPwBv6wspLAibl2eZrn7wzEg9GXCOX7e3Js9NNUDISxuq76a5NdsoEg9yGF3SXRicweq0HhHVed1vag/132', '1577030934', null, 'normal');
+INSERT INTO `base_user` VALUES ('17', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'oWOld5b6WqOSpcIdmSExKwMNIcDM', '老周Nice', 'https://wx.qlogo.cn/mmopen/vi_32/tMzQKCOxhNRjpAWh2pgGq9sPx2pvBPticW8NFDu46FwIl2hg4qlYibzduerCo8YEA0ugC8fzKKITMbAJjhGtaJzA/132', '1577274225', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_user_type
@@ -304,11 +300,9 @@ CREATE TABLE `base_user_type` (
 -- ----------------------------
 -- Records of base_user_type
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_user_type` VALUES (3, '3', NULL, '管理员', NULL, NULL, 'normal');
-INSERT INTO `base_user_type` VALUES (4, '4', NULL, '系统管理员', NULL, NULL, 'normal');
-INSERT INTO `base_user_type` VALUES (5, NULL, NULL, NULL, '1577018770', NULL, 'delete');
-COMMIT;
+INSERT INTO `base_user_type` VALUES ('3', '3', null, '管理员', null, null, 'normal');
+INSERT INTO `base_user_type` VALUES ('4', '4', null, '系统管理员', null, null, 'normal');
+INSERT INTO `base_user_type` VALUES ('5', null, null, null, '1577018770', null, 'delete');
 
 -- ----------------------------
 -- Table structure for comment_activity
@@ -329,17 +323,15 @@ CREATE TABLE `comment_activity` (
 -- ----------------------------
 -- Records of comment_activity
 -- ----------------------------
-BEGIN;
-INSERT INTO `comment_activity` VALUES (2, '8', '16', 'pinglu n', NULL, '1577289212', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (3, '8', '16', 'fdsfds', NULL, '1577289681', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (4, '8', '16', '卧槽', NULL, '1577289953', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (5, '9', '16', '这是啥子', NULL, '1577290022', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (6, 'undefined', '16', '好几回', NULL, '1577373998', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (7, 'undefined', '16', '开机键', NULL, '1577374072', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (8, 'undefined', '16', '?', NULL, '1577374227', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (9, 'undefined', '16', 'kjkn', NULL, '1577374292', NULL, 'normal');
-INSERT INTO `comment_activity` VALUES (10, 'undefined', '16', '?', NULL, '1577374387', NULL, 'normal');
-COMMIT;
+INSERT INTO `comment_activity` VALUES ('2', '8', '16', 'pinglu n', null, '1577289212', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('3', '8', '16', 'fdsfds', null, '1577289681', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('4', '8', '16', '卧槽', null, '1577289953', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('5', '9', '16', '这是啥子', null, '1577290022', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('6', 'undefined', '16', '好几回', null, '1577373998', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('7', 'undefined', '16', '开机键', null, '1577374072', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('8', 'undefined', '16', '?', null, '1577374227', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('9', 'undefined', '16', 'kjkn', null, '1577374292', null, 'normal');
+INSERT INTO `comment_activity` VALUES ('10', 'undefined', '16', '?', null, '1577374387', null, 'normal');
 
 -- ----------------------------
 -- Table structure for comment_vote
@@ -355,18 +347,17 @@ CREATE TABLE `comment_vote` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment_vote
 -- ----------------------------
-BEGIN;
-INSERT INTO `comment_vote` VALUES (1, '6', '16', 'nknkn', NULL, '1577374426', NULL, 'normal');
-INSERT INTO `comment_vote` VALUES (2, '6', '16', '??', NULL, '1577375268', NULL, 'normal');
-INSERT INTO `comment_vote` VALUES (3, '6', '16', '？？', NULL, '1577375325', NULL, 'normal');
-INSERT INTO `comment_vote` VALUES (4, '7', '16', '？？', NULL, '1577375485', NULL, 'normal');
-INSERT INTO `comment_vote` VALUES (5, '7', '16', '？？', NULL, '1577453464', NULL, 'normal');
-COMMIT;
+INSERT INTO `comment_vote` VALUES ('1', '6', '16', 'nknkn', null, '1577374426', null, 'normal');
+INSERT INTO `comment_vote` VALUES ('2', '6', '16', '??', null, '1577375268', null, 'normal');
+INSERT INTO `comment_vote` VALUES ('3', '6', '16', '？？', null, '1577375325', null, 'normal');
+INSERT INTO `comment_vote` VALUES ('4', '7', '16', '？？', null, '1577375485', null, 'normal');
+INSERT INTO `comment_vote` VALUES ('5', '7', '16', '？？', null, '1577453464', null, 'normal');
+INSERT INTO `comment_vote` VALUES ('6', '16', '16', 'shenme', null, '1577621776', null, 'normal');
 
 -- ----------------------------
 -- Table structure for contact
@@ -385,9 +376,7 @@ CREATE TABLE `contact` (
 -- ----------------------------
 -- Records of contact
 -- ----------------------------
-BEGIN;
-INSERT INTO `contact` VALUES (1, '16', '16', '1577018741', NULL, 'delete');
-COMMIT;
+INSERT INTO `contact` VALUES ('1', '16', '16', '1577018741', null, 'delete');
 
 -- ----------------------------
 -- Table structure for vote
@@ -404,16 +393,22 @@ CREATE TABLE `vote` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vote
 -- ----------------------------
-BEGIN;
-INSERT INTO `vote` VALUES (6, '169', '的撒打算', '2019-09-01', '2019-09-01', NULL, '1577196730', NULL, 'normal');
-INSERT INTO `vote` VALUES (7, '16', 'test', '2019-09-01', '2019-09-01', NULL, '1577281250', NULL, 'normal');
-INSERT INTO `vote` VALUES (8, '16', 'test2', '2019-09-01', '2019-09-01', NULL, '1577283766', NULL, 'normal');
-COMMIT;
+INSERT INTO `vote` VALUES ('6', '169', '的撒打算', '2019-09-01', '2019-09-01', null, '1577196730', null, 'normal');
+INSERT INTO `vote` VALUES ('7', '16', 'test', '2019-09-01', '2019-09-01', null, '1577281250', null, 'normal');
+INSERT INTO `vote` VALUES ('8', '16', 'test2', '2019-09-01', '2019-09-01', null, '1577283766', null, 'normal');
+INSERT INTO `vote` VALUES ('9', '16', null, '2019-09-01', '2019-09-01', null, '1577619245', null, 'normal');
+INSERT INTO `vote` VALUES ('10', '16', '大撒旦撒', '2019-09-01', '2019-09-01', '放大放大', '1577620178', null, 'normal');
+INSERT INTO `vote` VALUES ('11', '16', '大撒旦撒', '2019-09-01', '2019-09-01', '放大放大', '1577620228', null, 'normal');
+INSERT INTO `vote` VALUES ('12', '16', '发达省份的', '2019-09-01', '2019-09-01', '大撒旦撒', '1577620400', null, 'normal');
+INSERT INTO `vote` VALUES ('13', '16', '啊三个方式度过', '2019-09-01', '2019-09-01', null, '1577620467', null, 'normal');
+INSERT INTO `vote` VALUES ('14', '16', 'gfasdgfs', '2019-09-01', '2019-09-01', 'casdfsa', '1577620634', null, 'normal');
+INSERT INTO `vote` VALUES ('15', '16', 'dsadsa', '2019-09-01', '2019-09-01', 'fdasf', '1577620814', null, 'normal');
+INSERT INTO `vote` VALUES ('16', '16', 'ceshi item', '2019-09-01', '2019-09-01', 'dsadas', '1577621260', null, 'normal');
 
 -- ----------------------------
 -- Table structure for vote_item
@@ -428,7 +423,13 @@ CREATE TABLE `vote_item` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of vote_item
+-- ----------------------------
+INSERT INTO `vote_item` VALUES ('1', '16', null, 'dsadas', '1577621260', null, 'normal');
+INSERT INTO `vote_item` VALUES ('2', '16', null, 'fadsfadf', '1577621260', null, 'normal');
 
 -- ----------------------------
 -- Table structure for vote_member
@@ -438,11 +439,16 @@ CREATE TABLE `vote_member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vote_id` varchar(255) DEFAULT NULL COMMENT '活动id',
   `user_id` varchar(255) DEFAULT NULL COMMENT '用户id',
+  `vote_item_id` varchar(255) DEFAULT NULL,
   `vote_item` varchar(255) DEFAULT NULL COMMENT '投票选项',
   `create_time` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-SET FOREIGN_KEY_CHECKS = 1;
+-- ----------------------------
+-- Records of vote_member
+-- ----------------------------
+INSERT INTO `vote_member` VALUES ('1', '16', '16', '2', 'fadsfadf', '1577621260', null, 'normal');
+INSERT INTO `vote_member` VALUES ('2', '16', '17', '1', 'dsadasd', '1577621260', '', 'delete');

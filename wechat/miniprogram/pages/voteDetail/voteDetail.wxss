@@ -84,4 +84,33 @@ ec-canvas {
   margin-right: 10rpx;
 }
 
+.vote-list{
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx;
+  background: #f6f6f6;
+  margin-top:30rpx;
+  margin-bottom:30rpx;
+}
+
+.vote-list-item{
+  width:90%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  margin-top:10rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.vote-list-item-title{
+  color: #666;
+  font-size: 30rpx;
+}
+
 

@@ -8,7 +8,7 @@
       <!-- item start-->
       <view class="me-item">
         <view class="me-item-pre">
-          <checkbox value="{{item.id}}" checked="true"/>
+          <checkbox value="{{item.id}}"/>
           <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
           <view class="me-item-header">
             <text class="item-title">{{item.nickName}}</text>
@@ -25,7 +25,7 @@
   </view>
 </checkbox-group>
   
-  <view bindtap="backTo" class="footer">
+  <view bindtap="backto" class="footer">
    <text class="footer-text">完成</text>
   </view>
 

@@ -102,4 +102,16 @@ App({
       })
     }
   },
+
+  checkUserLogin:function(){
+    try {
+      var user_id = wx.getStorageSync("user_id");
+      if (user_id != undefined && user_id != null && user_id != ''){
+        return true;
+      }
+    } catch (e) {
+
+    }
+    return false;
+  }
 })

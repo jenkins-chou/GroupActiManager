@@ -3,10 +3,12 @@ package com.demo.controller;
 import java.util.ArrayList;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.models.VoteItemModel;
 import com.demo.models.VoteMemberModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
@@ -66,6 +68,48 @@ public class VoteMemberController  extends Controller {
 	}
 	
 	@CrossOrigin
+	public void getVoteOnDetail(){
+		String vote_id = getPara("vote_id");
+		List<VoteMemberModel> models = VoteMemberModel.dao.find("select * from "+DB_TABLE+" where vote_id = "+vote_id+" and vote_item_id != '' and vote_item != '' and del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(models!=null && models.size()>=1){
+			
+			Map<String,Integer> tempMap = new HashMap();
+			
+			for(int i = 0;i<models.size();i++){
+				if(tempMap.containsKey(models.get(i).get("vote_item"))){
+					int temp = tempMap.get(models.get(i).get("vote_item"));
+					temp++;
+					tempMap.put(models.get(i).get("vote_item"),temp);
+				}else{
+					tempMap.put(models.get(i).get("vote_item"),1);
+				}
+			}
+			
+			Iterator<String> keys = tempMap.keySet().iterator();
+			List<VoteOnDetailModel> ret = new ArrayList();
+			while (keys.hasNext()) {
+				String key = keys.next();
+				int value = tempMap.get(key);
+				VoteOnDetailModel model = new VoteOnDetailModel();
+				model.name = key;
+				model.value = value;
+				ret.add(model);
+			}
+			
+
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, ret);
+			System.out.println("-------"+JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
+	}
+	
+	
+	@CrossOrigin
 	public void add(){
 		JSONObject js = new JSONObject();
 		try{
@@ -92,6 +136,27 @@ public class VoteMemberController  extends Controller {
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
 			renderJson(JsonKit.toJson(js));
 		}catch(Exception e){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(JsonKit.toJson(js));
+		}
+	}
+	
+	@CrossOrigin
+	public void updateVoteOn(){
+		JSONObject js = new JSONObject();
+		String vote_id = getPara("vote_id");
+		String user_id = getPara("user_id");
+		String vote_item = getPara("vote_item");
+		String vote_item_id = getPara("vote_item_id");
+		VoteMemberModel model = VoteMemberModel.dao.findFirst("select * from vote_member where vote_id = "+vote_id+" and user_id = "+user_id+" and del != 'delete'");
+		System.out.println("model:"+model);
+		if(model != null){
+			model.set("vote_item", vote_item);
+			model.set("vote_item_id", vote_item_id);
+			model.update();
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			renderJson(JsonKit.toJson(js));
+		}else{
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
 			renderJson(JsonKit.toJson(js));
 		}
@@ -157,5 +222,24 @@ public class VoteMemberController  extends Controller {
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201); 
 			renderJson(js.toJSONString());
 		}
+	}
+	
+	public class VoteOnDetailModel{
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getValue() {
+			return value;
+		}
+		public void setValue(int value) {
+			this.value = value;
+		}
+		public String name;
+		public int value;
+		
+		
 	}
 }

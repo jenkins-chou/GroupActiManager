@@ -151,4 +151,22 @@ Page({
     })
   },
 
+  bindNavigate:function(e){
+    if (!app.checkUserLogin()){
+      wx.showModal({
+        title: '提示',
+        content: '当前未登录，请前往我的页面进行登录操作',
+      })
+      return;
+    }
+    console.log("------->");
+    console.log(e);
+    console.log(e.currentTarget.dataset.url);
+
+    let urlTemp = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: urlTemp,
+    })
+  }
+
 })

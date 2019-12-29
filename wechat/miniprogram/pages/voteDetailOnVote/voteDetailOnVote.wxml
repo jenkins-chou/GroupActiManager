@@ -1,0 +1,29 @@
+
+<view class="container">
+
+  <view class="list">
+
+  <radio-group bindchange="checkboxChange">
+    <block wx:for-items="{{list}}" wx:for-item="item">
+    <!-- item start-->
+    <view class="me-item">
+
+      <view class="me-item-pre">
+        <radio value="{{item.id}}"/>
+        <!-- <image class="me-item-header-icon" src="../../images/toupiao.png"></image> -->
+        <view class="me-item-header">
+          <text class="item-title">{{item.title}}</text>
+        </view>
+      </view>
+      
+    </view>
+    <!-- item end-->
+
+    </block>
+    </radio-group>
+
+  </view>
+  <view class="footer">
+    <view bindtap="submitVoteOn" class="footer-text footer-add">投票</view>
+  </view>
+</view>

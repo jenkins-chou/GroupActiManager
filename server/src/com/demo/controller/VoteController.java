@@ -7,12 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.models.VoteItemModel;
+import com.demo.models.VoteMemberModel;
 import com.demo.models.VoteModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 import com.demo.utils.DatabaseUtil;
+import com.demo.utils.Log;
 
 @CrossOrigin
 public class VoteController  extends Controller {
@@ -91,6 +94,52 @@ public class VoteController  extends Controller {
 			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
 			System.out.println("model:"+model);
 			model.save();
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			renderJson(JsonKit.toJson(js));
+		}catch(Exception e){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(JsonKit.toJson(js));
+		}
+	}
+	
+	@CrossOrigin
+	public void addWithDetail(){
+		JSONObject js = new JSONObject();
+		try{
+			VoteModel model = getModel(VoteModel.class, "", true);
+			model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+			System.out.println("model:"+model);
+			model.save();
+			int id = model.getInt("id");
+			
+			String vote_item = getPara("vote_item");
+			vote_item = vote_item.replace("[", "").replace("]", "").replace("\"", "");
+			String[] vote_item_array = vote_item.split(",");
+			
+			String selected_user_id = getPara("selected_user_id");
+			selected_user_id = selected_user_id.replace("[", "").replace("]", "").replace("\"", "");
+			String[] selected_user_id_array = selected_user_id.split(",");
+			
+			for(int i = 0;i<vote_item_array.length;i++){
+				Log.i(vote_item_array[i]);
+				VoteItemModel voteItemModel = new VoteItemModel();
+				voteItemModel.set("vote_id", id);
+				voteItemModel.set("title", vote_item_array[i]);
+				voteItemModel.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+				voteItemModel.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+				voteItemModel.save();
+			}
+			
+			for(int j = 0;j<selected_user_id_array.length;j++){
+				VoteMemberModel voteMemberModel = new VoteMemberModel();
+				voteMemberModel.set("vote_id", id);
+				voteMemberModel.set("user_id", selected_user_id_array[j]);
+				voteMemberModel.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+				voteMemberModel.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+				voteMemberModel.save();
+			}
+			
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
 			renderJson(JsonKit.toJson(js));
 		}catch(Exception e){

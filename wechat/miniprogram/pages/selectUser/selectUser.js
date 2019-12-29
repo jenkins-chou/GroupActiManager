@@ -97,25 +97,24 @@ Page({
     let select_users = [];
     let pages = getCurrentPages();               //当前页面
     let prevPage = pages[pages.length - 2];     //上一页面
+    var that = this;
     if (this.data.selected != null && this.data.list != null){
-      for (var i = 0; i < selected.length; i++) {
+      for (var i = 0; i < this.data.selected.length; i++) {
+        for (var j = 0; j < this.data.list.length; j++) {
 
-        var newArr = this.data.list.filter(function (p) {
-          return p.id === this.data.selected[i];
-        });
+          console.log("this.data.list["+j+"].id:"+this.data.list[j].id);
+          console.log("this.data.selected["+i+"]:" + this.data.selected[i]);
 
-        if(newArr >=0){
-          select_users.push(this.data.list[newArr]);
+          if (this.data.list[j].id == this.data.selected[i]){
+            select_users.push(this.data.list[j]);
+          }
         }
-
       }
-
-      console.log(select_users);
-
+      //console.log(select_users);
       prevPage.setData({
-        selected_user: select_users
+        selected_user: select_users,
+        selected_user_id: that.data.selected
       });
-
     }
   
     wx.navigateBack({

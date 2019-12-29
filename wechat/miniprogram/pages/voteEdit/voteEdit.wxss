@@ -116,3 +116,10 @@
 .block{
   height:50rpx;
 }
+
+
+.me-item-header-icon{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}

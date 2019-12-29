@@ -11,7 +11,20 @@
     <text class="title-value">{{voteDetail.start_time}}</text>
     <text class="title-mask">结束时间</text>
     <text class="title-value">{{voteDetail.end_time}} </text>
-    <text class="title-mask">投票结果</text>
+
+    <text class="title-mask">投票选项</text>
+    <!-- -list -->
+    <view class="vote-list">
+      <block wx:for-items="{{vote_item}}" wx:for-item="item" wx:for-index="bindex">
+        <view class="vote-list-item">
+          <text class="vote-list-item-title">{{item.title}}</text>
+        </view>
+      </block>
+      <button type="primary" bindtap="gotoVoteOn">去投票</button>
+    </view>
+    <!-- vote-list -->
+
+  <text class="title-mask">投票结果</text>
   </view>
   <view class="content">
     <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas>

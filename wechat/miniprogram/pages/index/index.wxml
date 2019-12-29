@@ -17,15 +17,19 @@
   <!-- line start-->
   <view class="item-line2">
 
-    <navigator url="../createActivity/createActivity" class="item-block2 create_acti">
+    <!-- <navigator url="../createActivity/createActivity" class="item-block2 create_acti">
       <image class="item-block-icon2 " src="../../images/create_acti.png"></image>
       <text class="item-block-text2">创建活动</text>
-    </navigator>
+    </navigator> -->
+    <view data-url="../createActivity/createActivity" bindtap="bindNavigate" class="item-block2 create_acti">
+      <image class="item-block-icon2 " src="../../images/create_acti.png"></image>
+      <text class="item-block-text2">创建活动</text>
+    </view>
  
-    <navigator url="../myActivity/myActivity"  class="item-block2 mine-acti">
+    <view data-url="../myActivity/myActivity" bindtap="bindNavigate"  class="item-block2 mine-acti">
       <image class="item-block-icon2 " src="../../images/mine_acti.png"></image>
       <text class="item-block-text2">我的活动</text>
-    </navigator>
+    </view>
 
   </view>
   <!-- line end-->
@@ -35,15 +39,15 @@
 
     <!-- line start-->
   <view class="item-line">
-    <navigator url="../allActivity/allActivity" class="item-block">
+    <view data-url="../allActivity/allActivity" bindtap="bindNavigate"  class="item-block">
       <image class="item-block-icon" src="../../images/acti2.png"></image>
       <text class="item-block-text">活动列表</text>
-    </navigator>
+    </view>
 
-    <navigator url="../allVote/allVote" class="item-block">
+    <view data-url="../allVote/allVote" bindtap="bindNavigate"  class="item-block">
       <image class="item-block-icon" src="../../images/toupiao.png"></image>
           <text class="item-block-text">投票列表</text>
-    </navigator>
+    </view>
 
   </view>
   <!-- line end-->

@@ -11,6 +11,8 @@ Page({
     end_time: '2019-09-01',
     detail: '',
     vote_item:[],
+    selected_user:[],
+    selected_user_id: []
   },
 
   /**
@@ -101,10 +103,16 @@ Page({
       console.log(this.data);
       var data = this.data;
       wx.request({
-        url: app.globalBaseUrl + '/vote/add',
+        url: app.globalBaseUrl + '/vote/addWithDetail',
         data: data,
         success(result) {
           console.log(result);
+          wx.navigateBack({
+            delta:1
+          })
+          wx.showToast({
+            title: '添加成功',
+          })
         }
       })
     } catch (e) {
