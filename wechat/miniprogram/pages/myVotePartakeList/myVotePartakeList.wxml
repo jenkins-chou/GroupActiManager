@@ -1,0 +1,28 @@
+
+<view class="container">
+
+  <view class="list">
+  
+    <block wx:for-items="{{list}}" wx:for-item="item">
+      <navigator url="../voteDetail/voteDetail?id={{item.id}}" class="me-item">
+
+      <view class="me-item-pre">
+        <image class="me-item-header-icon" src="../../images/toupiao.png"></image>
+        <view class="me-item-header">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-detail">{{item.start_time}}</text>
+        </view>
+      </view>
+      
+      <view class="me-item-pre">
+        <text class="item-text item-text-active ">进行中</text>
+        <image class="item-arrow" src="../../images/right_arrow.png"></image>
+      </view>
+      
+    </navigator>
+    </block>
+
+
+  </view>
+  
+</view>

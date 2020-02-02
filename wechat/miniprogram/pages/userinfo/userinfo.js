@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo:null
+    userinfo:null,
+    isEdit:false,
+    phone:''
   },
 
   /**
@@ -14,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log(options);
     wx.request({
       url: app.globalBaseUrl + '/base_user/get',
       data: { id: options.user_id },
@@ -24,6 +27,10 @@ Page({
           })
         }
       }
+    })
+
+    this.setData({
+      isEdit:options.isEdit
     })
   },
 
@@ -74,5 +81,39 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  bindPhoneChange: function(e){
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+
+  onUpdateUser: function(){
+
+    var user_id = wx.getStorageSync("user_id");
+    var that = this;
+    if (!that.data.phone){
+      wx.showModal({
+        title: '提示',
+        content: '未输入手机号或未更改',
+      })
+      return;
+    }
+    wx.request({
+      url: app.globalBaseUrl + '/base_user/update',
+      data: { id: user_id, phone: that.data.phone},
+      success(result) {
+        if (result.data.code == 200) {
+          wx.showToast({
+            title: '更新成功',
+          })
+        }else{
+          wx.showToast({
+            title: '更新失败，请重试',
+          })
+        }
+      }
+    })
   }
 })

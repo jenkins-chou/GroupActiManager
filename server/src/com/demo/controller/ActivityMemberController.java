@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.models.ActivityMemberModel;
+import com.demo.models.BaseUserModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.jfinal.core.Controller;
@@ -31,6 +32,45 @@ public class ActivityMemberController  extends Controller {
 		hidden,//�����ֶ�
 		custom,//�Զ���
 		normal//Ĭ��
+	}
+	
+	@CrossOrigin
+	public void setMemberWatch(){
+		String activity_id = getPara("activity_id");
+		String user_id = getPara("user_id");
+		ActivityMemberModel member = ActivityMemberModel.dao.findFirst("select * from activity_member where activity_id = "+activity_id+" and user_id = "+user_id+" and del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(member != null){
+			member.set("is_watch", "true");
+			member.update();
+			System.out.println(JsonKit.toJson(js));
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+			
+		} else {
+			System.out.println(JsonKit.toJson(js));
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
+	}
+	
+	@CrossOrigin
+	public void getActivityMember(){
+		String activity_id = getPara("activity_id");
+		String sql = "select a.is_watch,b.avatarUrl,b.nickName,b.id from "+DB_TABLE+" a , base_user b where a.activity_id = '"+activity_id+"' and a.user_id = b.id and a.del != 'delete' and b.del != 'delete'";
+		List<BaseUserModel> models = BaseUserModel.dao.find(sql);
+		System.out.println("getActivityMember:"+models.toString());
+		JSONObject js = new JSONObject();
+		if(models!=null&&models.size()>=1){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, models);
+			System.out.println(JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			System.out.println(JsonKit.toJson(js));
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
 	}
 	
 	@CrossOrigin

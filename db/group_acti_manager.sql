@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 06/01/2020 22:30:18
+ Date: 02/02/2020 22:35:44
 */
 
 SET NAMES utf8mb4;
@@ -34,15 +34,14 @@ CREATE TABLE `activity` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of activity
 -- ----------------------------
 BEGIN;
-INSERT INTO `activity` VALUES (8, 'title', '2019-09-01', '2019-09-01', '9', 'main', '见客户', '的', '1577192069', NULL, 'normal');
-INSERT INTO `activity` VALUES (9, NULL, '2019-09-01', '2019-09-01', '16', NULL, NULL, '发发发', '1577199308', NULL, 'normal');
-INSERT INTO `activity` VALUES (10, 'hdbxhdddddd', '2019-09-01', '2019-09-01', '17', NULL, NULL, NULL, '1577274374', NULL, 'normal');
+INSERT INTO `activity` VALUES (31, 'shijianceshi', '2018-10-17 10:17', '2019-10-17 10:17', '16', NULL, NULL, 'didian', '1579794611', NULL, 'normal');
+INSERT INTO `activity` VALUES (32, '标题', '2018-10-17 10:17', '2019-10-17 10:17', '16', '机会', '方案二', '广东省广州市', '1579794827', NULL, 'normal');
 COMMIT;
 
 -- ----------------------------
@@ -79,11 +78,26 @@ CREATE TABLE `activity_member` (
   `activity_id` varchar(255) DEFAULT NULL COMMENT '活动id',
   `user_id` varchar(255) DEFAULT NULL COMMENT '用户id',
   `role` varchar(255) DEFAULT NULL COMMENT '角色',
+  `is_watch` varchar(255) DEFAULT NULL COMMENT '是否已看',
   `create_time` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of activity_member
+-- ----------------------------
+BEGIN;
+INSERT INTO `activity_member` VALUES (1, '30', '16', NULL, NULL, '1579767565', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (2, '30', '17', NULL, NULL, '1579767565', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (3, '31', '16', NULL, 'true', '1579794612', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (4, '31', '17', NULL, NULL, '1579794612', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (5, '32', '17', NULL, NULL, '1579794827', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (6, '32', '16', NULL, 'true', '1579794827', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (7, '33', '17', NULL, NULL, '1579794933', NULL, 'normal');
+INSERT INTO `activity_member` VALUES (8, '33', '16', NULL, NULL, '1579794933', NULL, 'normal');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for activity_progress
@@ -98,7 +112,7 @@ CREATE TABLE `activity_progress` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of activity_progress
@@ -108,6 +122,8 @@ INSERT INTO `activity_progress` VALUES (1, '8', 'dsad', 'asddsa', '1577286975', 
 INSERT INTO `activity_progress` VALUES (2, '8', 'fffffff', '2222', '1577287232', NULL, 'delete');
 INSERT INTO `activity_progress` VALUES (3, '8', 'huo', 'dsads', '1577287328', NULL, 'delete');
 INSERT INTO `activity_progress` VALUES (4, '8', '物资准备完毕', '2019年', '1577287392', NULL, 'normal');
+INSERT INTO `activity_progress` VALUES (5, '11', '1', '12', '1578815470', NULL, 'normal');
+INSERT INTO `activity_progress` VALUES (6, '10', '大家都叫撒', '的撒的撒', '1580026874', NULL, 'delete');
 COMMIT;
 
 -- ----------------------------
@@ -275,15 +291,16 @@ CREATE TABLE `base_user` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of base_user
 -- ----------------------------
 BEGIN;
 INSERT INTO `base_user` VALUES (8, 'admin', 'admin', '系统管理员', '134126', 'email', '联系地址', 'wchat', 'qq', '26', '', 'hello', '地区', '4', '系统管理员', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'normal');
-INSERT INTO `base_user` VALUES (16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5TKbusw9J6uJjiWPkjXPL_E', '周镇健', 'https://wx.qlogo.cn/mmopen/vi_32/4icVyibZoGvQPwBv6wspLAibl2eZrn7wzEg9GXCOX7e3Js9NNUDISxuq76a5NdsoEg9yGF3SXRicweq0HhHVed1vag/132', '1577030934', NULL, 'normal');
-INSERT INTO `base_user` VALUES (17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5b6WqOSpcIdmSExKwMNIcDM', '老周Nice', 'https://wx.qlogo.cn/mmopen/vi_32/tMzQKCOxhNRjpAWh2pgGq9sPx2pvBPticW8NFDu46FwIl2hg4qlYibzduerCo8YEA0ugC8fzKKITMbAJjhGtaJzA/132', '1577274225', NULL, 'normal');
+INSERT INTO `base_user` VALUES (16, NULL, NULL, NULL, '12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5TKbusw9J6uJjiWPkjXPL_E', '周镇健', 'https://wx.qlogo.cn/mmopen/vi_32/4icVyibZoGvQPwBv6wspLAibl2eZrn7wzEg9GXCOX7e3Js9NNUDISxuq76a5NdsoEg9vURfaicHIj3WGdv4WiaCCS4Q/132', '1577030934', NULL, 'normal');
+INSERT INTO `base_user` VALUES (17, NULL, NULL, NULL, '87069806', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5b6WqOSpcIdmSExKwMNIcDM', '老周Nice', 'https://wx.qlogo.cn/mmopen/vi_32/tMzQKCOxhNRjpAWh2pgGq9sPx2pvBPticW8NFDu46FwIl2hg4qlYibzduerCo8YEA0ugC8fzKKITMbAJjhGtaJzA/132', '1577274225', NULL, 'normal');
+INSERT INTO `base_user` VALUES (18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'oWOld5SMVnqo-72XSkjnxS_AsL-E', NULL, NULL, '1578815330', NULL, 'normal');
 COMMIT;
 
 -- ----------------------------
@@ -355,7 +372,7 @@ CREATE TABLE `comment_vote` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment_vote
@@ -367,6 +384,7 @@ INSERT INTO `comment_vote` VALUES (3, '6', '16', '？？', NULL, '1577375325', N
 INSERT INTO `comment_vote` VALUES (4, '7', '16', '？？', NULL, '1577375485', NULL, 'normal');
 INSERT INTO `comment_vote` VALUES (5, '7', '16', '？？', NULL, '1577453464', NULL, 'normal');
 INSERT INTO `comment_vote` VALUES (6, '16', '16', 'shenme', NULL, '1577621776', NULL, 'normal');
+INSERT INTO `comment_vote` VALUES (7, '7', '16', '女孩', NULL, '1578815219', NULL, 'normal');
 COMMIT;
 
 -- ----------------------------
@@ -381,13 +399,18 @@ CREATE TABLE `contact` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of contact
 -- ----------------------------
 BEGIN;
 INSERT INTO `contact` VALUES (1, '16', '16', '1577018741', NULL, 'delete');
+INSERT INTO `contact` VALUES (2, '12', '16', NULL, NULL, 'delete');
+INSERT INTO `contact` VALUES (3, '16', '16', NULL, NULL, 'delete');
+INSERT INTO `contact` VALUES (4, '16', '16', NULL, NULL, 'delete');
+INSERT INTO `contact` VALUES (5, '16', '16', NULL, NULL, 'delete');
+INSERT INTO `contact` VALUES (6, '16', '17', '1580565181', NULL, 'normal');
 COMMIT;
 
 -- ----------------------------
@@ -411,17 +434,7 @@ CREATE TABLE `vote` (
 -- Records of vote
 -- ----------------------------
 BEGIN;
-INSERT INTO `vote` VALUES (6, '169', '的撒打算', '2019-09-01', '2019-09-01', NULL, '1577196730', NULL, 'normal');
-INSERT INTO `vote` VALUES (7, '16', 'test', '2019-09-01', '2019-09-01', NULL, '1577281250', NULL, 'normal');
-INSERT INTO `vote` VALUES (8, '16', 'test2', '2019-09-01', '2019-09-01', NULL, '1577283766', NULL, 'normal');
-INSERT INTO `vote` VALUES (9, '16', NULL, '2019-09-01', '2019-09-01', NULL, '1577619245', NULL, 'normal');
-INSERT INTO `vote` VALUES (10, '16', '大撒旦撒', '2019-09-01', '2019-09-01', '放大放大', '1577620178', NULL, 'normal');
-INSERT INTO `vote` VALUES (11, '16', '大撒旦撒', '2019-09-01', '2019-09-01', '放大放大', '1577620228', NULL, 'normal');
-INSERT INTO `vote` VALUES (12, '16', '发达省份的', '2019-09-01', '2019-09-01', '大撒旦撒', '1577620400', NULL, 'normal');
-INSERT INTO `vote` VALUES (13, '16', '啊三个方式度过', '2019-09-01', '2019-09-01', NULL, '1577620467', NULL, 'normal');
-INSERT INTO `vote` VALUES (14, '16', 'gfasdgfs', '2019-09-01', '2019-09-01', 'casdfsa', '1577620634', NULL, 'normal');
-INSERT INTO `vote` VALUES (15, '16', 'dsadsa', '2019-09-01', '2019-09-01', 'fdasf', '1577620814', NULL, 'normal');
-INSERT INTO `vote` VALUES (16, '16', 'ceshi item', '2019-09-01', '2019-09-01', 'dsadas', '1577621260', NULL, 'normal');
+INSERT INTO `vote` VALUES (16, '16', 'ceshi item', '2020-2-10 10:17', '2020-2-1 1:34', 'dsadas', '1577621260', NULL, 'normal');
 COMMIT;
 
 -- ----------------------------
@@ -467,7 +480,7 @@ CREATE TABLE `vote_member` (
 -- Records of vote_member
 -- ----------------------------
 BEGIN;
-INSERT INTO `vote_member` VALUES (1, '16', '16', '2', 'fadsfadf', '1577621260', NULL, 'normal');
+INSERT INTO `vote_member` VALUES (1, '16', '16', '1', 'dsadas', '1577621260', NULL, 'normal');
 INSERT INTO `vote_member` VALUES (2, '16', '17', '1', 'dsadasd', '1577621260', '', 'delete');
 COMMIT;
 

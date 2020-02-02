@@ -5,11 +5,24 @@
       <view class="page-body-info">
         <image class="userinfo-avatar" src="{{userinfo.avatarUrl}}"></image>
         <text class="userinfo-nickname">{{userinfo.nickName}}</text>
+        <text class="userinfo-nickname">手机号：{{userinfo.phone}}</text>
       </view>
-      <view class="page-body-buttons">
-      </view>
+      <block wx:if="{{isEdit === 'true' || isEdit === true}}">
+        <view class="page-body-buttons">
+          <view class="content">
+            <view class="section">
+              <text class="common-title">手机号</text>
+              <input class="common-input" placeholder="请输入" bindinput="bindPhoneChange" value="{{userinfo.phone}}"></input>
+            </view>
+
+            <view class="footer" bindtap="onUpdateUser">
+              <text class="footer-text">更新</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      
     </view>
   </view>
-
-  
 </view>

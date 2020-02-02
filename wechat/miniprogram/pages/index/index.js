@@ -15,7 +15,10 @@ Page({
     vertical: false,
     autoplay: true,
     interval: 4000,
-    duration: 1000
+    duration: 1000,
+
+    actiNotiList:[],
+    voteNotiList:[]
   },
 
   changeIndicatorDots: function (e) {
@@ -68,6 +71,10 @@ Page({
         }
       }
     })
+
+    this.getNotification();
+
+    
   },
 
   onGetUserInfo: function(e) {
@@ -166,6 +173,92 @@ Page({
     let urlTemp = e.currentTarget.dataset.url;
     wx.navigateTo({
       url: urlTemp,
+    })
+  },
+
+  getNotification: function(){
+
+    var date = new Date('2019-10-17 10:17');
+    var time1 = date.getTime();
+    console.log('------->>>time:'+time1);//1398250549123
+
+    if (app.checkUserLogin()) {
+      this.getActivityNoti();
+      this.getVoteNoti();
+    }
+  },
+
+  getActivityNoti: function(){
+    let that = this;
+    var user_id = wx.getStorageSync("user_id");
+    wx.request({
+      url: app.globalBaseUrl + '/activity/getAllByPartake',
+      data: { user_id: user_id },
+      success(result) {
+        console.log("------getActivityNoti");
+        console.log(result);
+        if (result.data.code == 200) {
+
+          for (var i = 0; i < result.data.data.length;i++){
+            let item = result.data.data[i];
+            let end_time = item.end_time;
+            let end_timestamp = new Date(end_time);
+            let current_timestamp = new Date().getTime();
+            if (end_timestamp - current_timestamp > 24 * 60 * 60 * 1000){
+              result.data.data[i].last_time = '大于1天';
+            } else if (end_timestamp - current_timestamp <0){
+              result.data.data[i].last_time = '已经超时';
+            }else{
+              let ls = parseInt((end_timestamp - current_timestamp) / 1000);
+              var hh = parseInt(ls / 60 / 60 % 24, 10);
+              var mm = parseInt(ls / 60 % 60, 10);
+              var ss = parseInt(ls % 60, 10);
+              var last_timestr = hh + '时' + mm + '分' + ss + '秒';
+              result.data.data[i].last_time = last_timestr;
+            }
+          }
+          that.setData({
+            actiNotiList: result.data.data
+          })
+        }
+      }
+    })
+  },
+  getVoteNoti: function () {
+    let that = this;
+    var user_id = wx.getStorageSync("user_id");
+    wx.request({
+      url: app.globalBaseUrl + '/vote/getAllByPartake',
+      data: { user_id: user_id },
+      success(result) {
+        console.log("------getVoteNoti");
+        console.log(result);
+        if (result.data.code == 200) {
+
+          for (var i = 0; i < result.data.data.length; i++) {
+            let item = result.data.data[i];
+            let end_time = item.end_time;
+            let end_timestamp = new Date(end_time);
+            let current_timestamp = new Date().getTime();
+            if (end_timestamp - current_timestamp > 24 * 60 * 60 * 1000) {
+              result.data.data[i].last_time = '大于1天';
+            } else if (end_timestamp - current_timestamp < 0) {
+              result.data.data[i].last_time = '已经超时';
+            } else {
+              let ls = parseInt((end_timestamp - current_timestamp)/1000);
+              var hh = parseInt(ls / 60 / 60 % 24, 10);
+              var mm = parseInt(ls / 60 % 60, 10);
+              var ss = parseInt(ls % 60, 10);
+              var last_timestr = hh + '时' + mm + '分' + ss + '秒';
+              result.data.data[i].last_time = last_timestr;
+            }
+          }
+
+          that.setData({
+            voteNotiList: result.data.data
+          })
+        }
+      }
     })
   }
 

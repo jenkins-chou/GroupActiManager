@@ -18,7 +18,7 @@
     </view>
 
     <!-- item start-->
-     <view data-url="../userinfo/userinfo?user_id={{user_id}}" bindtap="bindNavigate" class="me-item">
+     <view data-url="../userinfo/userinfo?user_id={{user_id}}&isEdit=true" bindtap="bindNavigate" class="me-item">
       <view class="me-item-pre">
         <image class="item-icon" src="../../images/persion.png"></image>
         <text class="item-text">个人信息</text>

@@ -3,7 +3,7 @@
 
   <view class="list">
     <!-- item start-->
-    <navigator url="../myActivityList/myActivityList" class="me-item">
+    <view bindtap="selectTypeToShowActi" class="me-item">
 
       <view class="me-item-header">
         <text class="item-title">团队活动</text>
@@ -15,11 +15,11 @@
         
       </view>
       
-    </navigator>
+    </view>
     <!-- item end-->
 
  <!-- item start-->
-    <navigator url="../myVoteList/myVoteList" class="me-item">
+    <view bindtap="selectTypeToShowVote" class="me-item">
 
       <view class="me-item-header">
         <text class="item-title">投票活动</text>
@@ -28,11 +28,9 @@
       <view class="me-item-pre">
         <image class="item-icon" src="../../images/toupiao.png"></image>
         <image class="item-arrow" src="../../images/right_arrow.png"></image>
-        
       </view>
       
-    </navigator>
+    </view>
     <!-- item end-->
   </view>
-  
 </view>

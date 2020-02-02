@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "TimePicker":"../../components/TimePicker/TimePicker"
+  },
   "navigationBarTitleText": "编辑活动"
 }

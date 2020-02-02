@@ -11,7 +11,9 @@
     "pages/activityEdit/activityEdit",
     "pages/voteEdit/voteEdit",
     "pages/myActivityList/myActivityList",
+    "pages/myActivityPartakeList/myActivityPartakeList",
     "pages/myVoteList/myVoteList",
+    "pages/myVotePartakeList/myVotePartakeList",
     "pages/selectUser/selectUser",
     "pages/voteDetail/voteDetail",
     "pages/contactList/contactList",
@@ -24,7 +26,9 @@
     "pages/votesForActivitySelect/votesForActivitySelect",
     "pages/commentEdit/commentEdit",
     "pages/voteItemEdit/voteItemEdit",
-    "pages/voteDetailOnVote/voteDetailOnVote"
+    "pages/voteDetailOnVote/voteDetailOnVote",
+    "pages/MapPage/MapPage",
+    "pages/contactAdd/contactAdd"
   ],
   "window": {
     "backgroundColor": "#f6f6f6",

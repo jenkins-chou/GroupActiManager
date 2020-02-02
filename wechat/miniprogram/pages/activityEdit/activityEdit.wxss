@@ -57,3 +57,71 @@
   color: #fff;
   font-size: 25rpx;
 }
+
+.vote-list-header{
+  width:95%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.vote-list{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx;
+  background: #f6f6f6;
+  margin-top:30rpx;
+  margin-bottom:30rpx;
+}
+
+.vote-list-item{
+  width:90%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  margin-top:10rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.vote-list-item-title{
+  color: #666;
+  font-size: 30rpx;
+}
+
+.vote-list-item-value{
+  color: #999;
+  font-size: 30rpx;
+}
+
+.title-mask{
+  color: #fff;
+  font-size: 20rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  border-radius: 10rpx;
+  background: #6c8cd5;
+}
+
+.title-link{
+  color: #6c8cd5;
+  font-size: 30rpx;
+}
+
+.title-link:active{
+  color: #6c8cd566;
+}
+.me-item-header-icon{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}

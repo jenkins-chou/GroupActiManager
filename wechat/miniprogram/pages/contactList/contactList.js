@@ -26,32 +26,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
-    var that = this;
-
-    try {
-      var user_id = wx.getStorageSync("user_id");
-      wx.request({
-        url: app.globalBaseUrl + '/base_user/getAll',
-        data: { owner: user_id },
-        success(result) {
-          //console.log(result.data.data);
-          if (result.data.code == 200) {
-            that.setData({
-              list: result.data.data
-            })
-          }else{
-            that.setData({
-              data:null
-            })
-            
-          }
-        }
-      })
-    } catch (e) {
-
-    }
+  onShow: function () { 
+    this.getAllByOwner();
   },
 
   /**
@@ -87,5 +63,64 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  bindKeyChange:function(e){
+    if(e.detail.value){
+      this.searchAllByOwner(e.detail.valu);
+    }else{
+      this.getAllByOwner();
+    }
+  },
+
+  getAllByOwner: function(){
+    var that = this;
+    try {
+      var user_id = wx.getStorageSync("user_id");
+      wx.request({
+        url: app.globalBaseUrl + '/contact/getAllByOwner',
+        data: { owner: user_id },
+        success(result) {
+          //console.log(result.data.data);
+          if (result.data.code == 200) {
+            that.setData({
+              list: result.data.data
+            })
+          } else {
+            that.setData({
+              data: null
+            })
+
+          }
+        }
+      })
+    } catch (e) {
+
+    }
+  },
+  searchAllByOwner: function (key) {
+    var that = this;
+    try {
+      var user_id = wx.getStorageSync("user_id");
+      wx.request({
+        url: app.globalBaseUrl + '/contact/searchAllByOwner',
+        data: { owner: user_id,key:key},
+        success(result) {
+          //console.log(result.data.data);
+          if (result.data.code == 200) {
+            that.setData({
+              list: result.data.data
+            })
+          } else {
+            that.setData({
+              data: null
+            })
+
+          }
+        }
+      })
+    } catch (e) {
+
+    }
   }
 })

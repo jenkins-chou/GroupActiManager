@@ -1,6 +1,9 @@
 
 <view class="container">
-
+  <view class="search_bar">
+    <input class="search-input" bindinput="bindKeyChange" placeholder="搜索"/>
+    <navigator url="../contactAdd/contactAdd" class="search-text">添加</navigator>
+  </view>
   <view class="list">
     <block wx:if="{{list == null }}">
         <view class="me-item-pre">
@@ -14,7 +17,7 @@
       <navigator url="../userinfo/userinfo?user_id={{item.id}}" class="me-item">
 
         <view class="me-item-pre">
-          <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
+          <image class="me-item-header-icon" src="{{item.avatarUrl==null || item.avatarUrl==''?'../../images/avatar.png':item.avatarUrl}}"></image>
           <view class="me-item-header">
             <text class="item-title">{{item.nickName}}</text>
             <text class="item-msg"></text>
@@ -26,6 +29,5 @@
       <!-- item end-->
       </block>
     </block>
-
   </view>
 </view>

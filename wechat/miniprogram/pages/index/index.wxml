@@ -1,17 +1,38 @@
 <!--index.wxml-->
 <view class="container">
 
-  <view class="swiper-bg">
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" >
+  <!-- <view class="swiper-bg">
     <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
                     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" 
                     class="swiper">
                 <block wx:for-items="{{imagePath}}">
                     <swiper-item>
                         <image class="swiper-image" src="{{item}}"></image>
-                        <!-- <view class="swiper-item bc_{{item}}"></view> -->
                     </swiper-item>
                 </block>
     </swiper>
+  </view> -->
+
+  
+
+  <view class="item2-content">
+    <text class="item2-content-title">热门</text>
+
+    <!-- line start-->
+  <view class="item-line">
+    <view data-url="../allActivity/allActivity" bindtap="bindNavigate"  class="item-block">
+      <image class="item-block-icon" src="../../images/acti2.png"></image>
+      <text class="item-block-text">活动列表</text>
+    </view>
+
+    <view data-url="../allVote/allVote" bindtap="bindNavigate"  class="item-block">
+      <image class="item-block-icon" src="../../images/toupiao.png"></image>
+          <text class="item-block-text">投票列表</text>
+    </view>
+
+  </view>
+  <!-- line end-->
   </view>
 
   <!-- line start-->
@@ -35,23 +56,29 @@
   <!-- line end-->
 
   <view class="item2-content">
-    <text class="item2-content-title">热门</text>
+    <text class="item2-content-title">通知</text>
 
-    <!-- line start-->
-  <view class="item-line">
-    <view data-url="../allActivity/allActivity" bindtap="bindNavigate"  class="item-block">
-      <image class="item-block-icon" src="../../images/acti2.png"></image>
-      <text class="item-block-text">活动列表</text>
+    <!-- list -->
+    <view class="vote-list">
+      <block wx:for-items="{{actiNotiList}}" wx:for-item="item">
+        <navigator url="../activityDetail/activityDetail?id={{item.id}}" class="vote-list-item">
+          <text class="vote-list-item-title">活动：{{item.title}}</text>
+          <text class="vote-list-item-msg">剩余时间为 {{item.last_time}}</text>
+        </navigator>
+      </block>
     </view>
+    <!-- -list -->
 
-    <view data-url="../allVote/allVote" bindtap="bindNavigate"  class="item-block">
-      <image class="item-block-icon" src="../../images/toupiao.png"></image>
-          <text class="item-block-text">投票列表</text>
+    <!-- list -->
+    <view class="vote-list">
+      <block wx:for-items="{{voteNotiList}}" wx:for-item="item">
+        <navigator url="../voteDetail/voteDetail?id={{item.id}}" class="vote-list-item">
+          <text class="vote-list-item-title">投票：{{item.title}}</text>
+          <text class="vote-list-item-msg">剩余时间为 {{item.last_time}}</text>
+        </navigator>
+      </block>
     </view>
-
+    <!-- -list -->
   </view>
-  <!-- line end-->
-
-  </view>
-  
+</scroll-view>
 </view>

@@ -8,9 +8,12 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.models.ActivityBillModel;
+import com.demo.models.ActivityMemberModel;
 import com.demo.models.ActivityModel;
 import com.demo.models.ActivityProgressModel;
 import com.demo.models.ActivityVotesModel;
+import com.demo.models.VoteItemModel;
+import com.demo.models.VoteMemberModel;
 import com.demo.models.VoteModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
@@ -36,6 +39,60 @@ public class ActivityController  extends Controller {
 		hidden,//�����ֶ�
 		custom,//�Զ���
 		normal//Ĭ��
+	}
+	
+	/**
+	 * 根据user_id获取参与的所有投票
+	 */
+	@CrossOrigin
+	public void getAllByPartake(){
+		String user_id = getPara("user_id");
+		List<ActivityModel> models = ActivityModel.dao.find("select a.* from "+DB_TABLE+" a, activity_member b where b.user_id = "+user_id+" and a.id = b.activity_id and a.del != 'delete' and b.del != 'delete'");
+		JSONObject js = new JSONObject();
+		
+		if(models!=null&&models.size()>=1){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, models);
+			System.out.println(JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			System.out.println("model:");
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
+	}
+	
+	@CrossOrigin
+	public void addWithDetail(){
+		JSONObject js = new JSONObject();
+		try{
+			ActivityModel model = getModel(ActivityModel.class, "", true);
+			model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+			System.out.println("model:"+model);
+			model.save();
+			int id = model.getInt("id");
+			
+			String selected_user_id = getPara("selected_user_id");
+			selected_user_id = selected_user_id.replace("[", "").replace("]", "").replace("\"", "");
+			String[] selected_user_id_array = selected_user_id.split(",");
+			
+			
+			for(int j = 0;j<selected_user_id_array.length;j++){
+				ActivityMemberModel memberModel = new ActivityMemberModel();
+				memberModel.set("activity_id", id);
+				memberModel.set("user_id", selected_user_id_array[j]);
+				memberModel.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+				memberModel.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+				memberModel.save();
+			}
+			
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			renderJson(JsonKit.toJson(js));
+		}catch(Exception e){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(JsonKit.toJson(js));
+		}
 	}
 	
 	@CrossOrigin
@@ -181,7 +238,6 @@ public class ActivityController  extends Controller {
 		System.out.println(JsonKit.toJson(js));
 		renderJson(JsonKit.toJson(js));
 	}
-	
 	
 	@CrossOrigin
 	public void getAllByCreator(){

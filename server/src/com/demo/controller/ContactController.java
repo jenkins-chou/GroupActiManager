@@ -34,11 +34,72 @@ public class ContactController  extends Controller {
 		normal//Ĭ��
 	}
 	
+	//添加用户通讯录
+	@CrossOrigin
+	public void addContact(){
+		String key = getPara("key");
+		String user_id = getPara("user_id");
+		
+		List<BaseUserModel> models = BaseUserModel.dao.find("select * from base_user where phone = "+key+" and del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(models!=null&&models.size()==1){
+			List<ContactModel> contactModels = ContactModel.dao.find("select * from "+DB_TABLE+" where owner_id = "+user_id+" and user_id = "+models.get(0).get("id")+" and  del != 'delete'");
+			if(contactModels != null && contactModels.size() >= 1){
+				js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+				js.put(Const.KEY_RES_MESSAGE,"已存在联系人");
+				System.out.println(JsonKit.toJson(js));
+				renderJson(JsonKit.toJson(js));
+			}else{
+				if(user_id.equals(models.get(0).get("id").toString())){
+					js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+					js.put(Const.KEY_RES_MESSAGE,"不能添加自己为联系人");
+					System.out.println(JsonKit.toJson(js));
+					renderJson(JsonKit.toJson(js));
+				}else{
+					ContactModel contactModel = new ContactModel();
+					contactModel.set("owner_id", user_id);
+					contactModel.set("user_id", models.get(0).get("id"));
+					contactModel.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+					contactModel.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+					contactModel.save();
+					js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+					System.out.println(JsonKit.toJson(js));
+					renderJson(JsonKit.toJson(js));
+				}
+			}
+		}else{
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			js.put(Const.KEY_RES_MESSAGE,"找不到联系人");
+			renderJson(js.toJSONString());
+		}
+		
+	}
+	
 	//获取用户通讯录
 	@CrossOrigin
 	public void getAllByOwner(){
 		String owner = getPara("owner");
 		List<BaseUserModel> models = BaseUserModel.dao.find("select a.nickName,a.avatarUrl,a.id as user_id from base_user a,"+DB_TABLE+" b where a.id = b.user_id and b.owner_id = "+owner+" and a.del != 'delete' and b.del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(models!=null&&models.size()>=1){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, models);
+			System.out.println(JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			System.out.println("model:");
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
+	}
+	
+	//获取用户通讯录
+	@CrossOrigin
+	public void searchAllByOwner(){
+		String owner = getPara("owner");
+		String key = getPara("key");
+		
+		List<BaseUserModel> models = BaseUserModel.dao.find("select a.nickName,a.avatarUrl,a.id as user_id from base_user a,"+DB_TABLE+" b where a.id = b.user_id and b.owner_id = "+owner+" and a.username like '%"+key+"%' and a.del != 'delete' and b.del != 'delete'");
 		JSONObject js = new JSONObject();
 		if(models!=null&&models.size()>=1){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);

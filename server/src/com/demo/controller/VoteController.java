@@ -36,6 +36,26 @@ public class VoteController  extends Controller {
 		normal//Ĭ��
 	}
 	
+	/**
+	 * 根据user_id获取参与的所有投票
+	 */
+	@CrossOrigin
+	public void getAllByPartake(){
+		String user_id = getPara("user_id");
+		List<VoteModel> models = VoteModel.dao.find("select a.* from "+DB_TABLE+" a, vote_member b where b.user_id = "+user_id+" and a.id = b.vote_id and a.del != 'delete' and b.del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(models!=null&&models.size()>=1){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, models);
+			System.out.println(JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			System.out.println("model:");
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+			renderJson(js.toJSONString());
+		}
+	}
+	
 	@CrossOrigin
 	public void getAllByCreator(){
 		String creator = getPara("creator");

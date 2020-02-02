@@ -3,7 +3,7 @@
 
   <view class="list">
      <block wx:for-items="{{list}}" wx:for-item="item">
-    <navigator url="../activityDetail/activityDetail?id={{item.id}}" class="me-item">
+    <navigator url="../activityDetail/activityDetail?id={{item.id}}&canEdit=true" class="me-item">
       <view class="me-item-pre">
         <image class="me-item-header-icon" src="../../images/acti2.png"></image>
         <view class="me-item-header">

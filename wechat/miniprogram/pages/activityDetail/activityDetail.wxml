@@ -14,13 +14,15 @@
       <text class="title-mask title-mask4">结束时间</text>
       <text class="title-value">{{activityDetail.end_time}} </text>
       <text class="title-mask title-mask2">活动地点</text>
-      <text class="title-value">{{activityDetail.address}} </text>
+      <text bindtap="gotoMap" data-address="{{activityDetail.address}}" class="title-value">{{activityDetail.address}} </text>
       
     </view>
 
     <view class="vote-list-header">
       <text class="title-mask title-mask3">相关投票</text>
+      <block wx:if="{{canEdit === true || canEdit === 'true'}}">
       <navigator url="../votesForActivity/votesForActivity?activity_id={{activityDetail.id}}" class="title-link">编辑</navigator>
+      </block>
     </view>
     
     <!-- vote-list -->
@@ -36,7 +38,9 @@
 
      <view class="vote-list-header">
       <text class="title-mask title-mask4">筹备进度</text>
+      <block wx:if="{{canEdit === true || canEdit === 'true'}}">
       <navigator url="../progressForActivity/progressForActivity?activity_id={{activityDetail.id}}" class="title-link">编辑</navigator>
+      </block>
     </view>
     
     <!-- vote-list -->
@@ -53,7 +57,9 @@
      <view class="vote-list-header">
       <text class="title-mask">活动账单</text>
       <text class="vote-list-item-title">总额：600</text>
+      <block wx:if="{{canEdit === true || canEdit === 'true'}}">
       <navigator url="../billForActivity/billForActivity?activity_id={{activityDetail.id}}" class="title-link">编辑</navigator>
+      </block>
     </view>
     
     <!-- vote-list -->
@@ -63,6 +69,22 @@
           <text class="vote-list-item-title">{{item.detail}}:</text>
           <text class="vote-list-item-value">  {{item.bill}}</text>
         </view>
+      </block>
+    </view>
+    <!-- vote-list -->
+
+    <view class="vote-list-header">
+      <text class="title-mask">浏览记录</text>
+    </view>
+    
+    <!-- vote-list -->
+    <view class="vote-list">
+      <block wx:for-items="{{memberList}}" wx:for-item="item">
+        <navigator url="../userinfo/userinfo?user_id={{item.id}}" class="vote-list-item2">
+          <image class="me-item-header-icon" src="{{item.avatarUrl}}"></image>
+          <text class="vote-list-item-title">{{item.nickName}}:</text>
+          <text class="vote-list-item-value">  {{(item.is_watch === true || item.is_watch === 'true')?'已看':'未看'}}</text>
+        </navigator>
       </block>
     </view>
     <!-- vote-list -->

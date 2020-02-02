@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="content">
+    <view class="section">
+      <text class="common-title">手机号</text>
+      <input class="common-input" placeholder="请输入对方手机号" bindinput="bindValueChange"></input>
+    </view>
+  </view>
+
+  <view class="footer" bindtap="onSubmit">
+   <text class="footer-text">搜索并添加</text>
+  </view>
+  
+</view>
