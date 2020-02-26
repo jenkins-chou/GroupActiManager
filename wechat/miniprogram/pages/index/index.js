@@ -202,7 +202,7 @@ Page({
           for (var i = 0; i < result.data.data.length;i++){
             let item = result.data.data[i];
             let end_time = item.end_time;
-            let end_timestamp = new Date(end_time);
+            let end_timestamp = new Date(end_time).getTime();
             let current_timestamp = new Date().getTime();
             if (end_timestamp - current_timestamp > 24 * 60 * 60 * 1000){
               result.data.data[i].last_time = '大于1天';

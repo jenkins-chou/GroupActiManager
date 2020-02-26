@@ -8,7 +8,7 @@ Page({
    */
   data: {
     title:'',
-    start_time: '1',
+    start_time: '',
     end_time: '',
     address:'',
     programme_main:'',
@@ -108,6 +108,20 @@ Page({
     })
   },
   submit:function(){
+
+    let start_timestamp = new Date(this.data.start_time).getTime();
+    let end_timestamp = new Date(this.data.end_time).getTime();
+    console.log(start_timestamp);
+    console.log(end_timestamp);
+    console.log(start_timestamp > end_timestamp);
+    if (start_timestamp > end_timestamp) {
+      wx.showModal({
+        title: '提示',
+        content: '结束时间不可以早于或等于开始时间，请重新选择',
+      })
+      return;
+    }
+
     if (this.data.title == ''
       || this.data.start_time == ''
       || this.data.end_time == ''
@@ -119,6 +133,7 @@ Page({
       })
       return;
     }
+    
     if (this.data.selected_user_id.length <=0){
       wx.showModal({
         title: '提示',
